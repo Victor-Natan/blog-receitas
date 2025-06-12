@@ -1,0 +1,181 @@
+<!-- Estrutura base do projeto com cabeçalho comum -->
+<!-- Arquivo: index.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas Delícia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+</head>
+<body>
+  <header class="cabecalho">
+
+    <div class="logo">
+      <div class="logo-placeholder"><img src="./img/logoimg.png" alt="logo"></div>
+      
+      <span>Receitas da Vó Neide</span>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <a href="login.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Descubra o sabor que combina com você</h1>
+      <p>Receitas saudáveis, clássicas e criativas em um só lugar</p>
+      <div class="buttons">
+        <a href="#destaques" class="btn">Ver receitas</a>
+        <a href="adicionar.html" class="btn btn-alt">Adicionar receita</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <h2>Feito para quem ama cozinhar e compartilhar</h2>
+    <p>No Blog de Receitas, você encontra pratos deliciosos, passo a passo detalhado, e pode compartilhar suas próprias receitas com o mundo.</p>
+  </section>
+
+  <!-- Conteúdo principal -->
+  <main>
+    <section class="destaques" id="destaques">
+      <h2>Receitas em Destaque</h2>
+      <!-- Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <!-- Card Carne -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=carne">
+              <img src="img/carneimg.png" alt="Carne">
+              <h3>Carne</h3>
+            </a>
+          </div>
+          <!-- Card Massa -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=massa">
+              <img src="img/massaimg.png" alt="Massa">
+              <h3>Massa</h3>
+            </a>
+          </div>
+          <!-- Card Sobremesa -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=sobremesa">
+              <img src="img/sobremesaimg.png" alt="Sobremesa">
+              <h3>Sobremesa</h3>
+            </a>
+          </div>
+          <!-- Card Saudável -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=saudavel">
+              <img src="img/saudavelimg.png" alt="Saudável">
+              <h3>Saudável</h3>
+            </a>
+          </div>
+          <!-- Card Salada -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=salada">
+              <img src="img/saladaimg.png" alt="Salada">
+              <h3>Salada</h3>
+            </a>
+          </div>
+          <!-- Card Bolo -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=bolo">
+              <img src="img/boloimg.png" alt="Bolo">
+              <h3>Bolo</h3>
+            </a>
+          </div>
+          <!-- Card Frio -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=frio">
+              <img src="img/frioimg.png" alt="Frio">
+              <h3>Frio</h3>
+            </a>
+          </div>
+          <!-- Card Bebida -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=bebida">
+              <img src="img/bebidaimg.png" alt="Bebida">
+              <h3>Bebida</h3>
+            </a>
+          </div>
+          <!-- Card Italiana -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=italiana">
+              <img src="img/italianaimg.png" alt="italiana">
+              <h3>Italiana</h3>
+            </a>
+          </div>
+          <!-- Card Bebida -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=bebida">
+              <img src="img/bebidaimg.png" alt="Bebida">
+              <h3>Bebida</h3>
+            </a>
+          </div>
+          <!-- Card Bebida -->
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=bebida">
+              <img src="img/bebidaimg.png" alt="Bebida">
+              <h3>Bebida</h3>
+            </a>
+          </div>
+        </div>
+        <!-- Setas de navegação -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Blog de Receitas - Todos os direitos reservados</p>
+    <p>Contato: contato@blogdereceitas.com.br</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="auth-status.js"></script>
+  <script>
+    // Inicialização do Swiper
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      centeredSlides: false,
+      loop: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 15
+        },
+        480: {
+          slidesPerView: 2.2,
+          spaceBetween: 15
+        },
+        768: {
+          slidesPerView: 3.5,
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: 4.5,
+          spaceBetween: 25
+        },
+        1200: {
+          slidesPerView: 5.5,
+          spaceBetween: 30
+        }
+      }
+    });
+  </script>
+</body>
+</html>
+

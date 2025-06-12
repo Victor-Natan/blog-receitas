@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas - Delícia</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">Receitas Delícia</div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <a href="login.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 id="titulo-receita">Receitas</h1>
+    <section id="lista-receitas" class="receitas-container">
+      <!-- Cards das receitas carregadas via JS aparecerão aqui -->
+    </section>
+  </main>
+
+  <script src="receita.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('usuario_status.php', { credentials: 'same-origin' })
+        .then(res => res.json())
+        .then(status => {
+          if (status.logado) {
+            const saudacao = document.createElement('span');
+            saudacao.className = 'saudacao-usuario';
+            saudacao.textContent = `Olá, ${status.usuario}!`;
+
+            const nav = document.querySelector('header nav');
+            nav.appendChild(saudacao);
+
+            const loginLink = document.getElementById('login-link');
+            if (loginLink) {
+              loginLink.textContent = 'Sair';
+              loginLink.href = 'logout.php';
+            }
+          }
+        })
+        .catch(err => console.error('Erro ao verificar status de login:', err));
+    });
+  </script>
+</body>
+</html>
