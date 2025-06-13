@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="cabecalho">
+	<a href="index.html" class="logo-link"> <div class="logo">
+   	 <div class="logo-placeholder"><img src="./img/logoimg.png" alt="logo"></div>
+   	 <span>Receitas da Vó Neide</span>
+ 	 </div>
+	</a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html">Adicionar Receita</a>
+      <a href="minha_receita.html">Minhas Receitas</a>
+    </nav>
+  </header>
+
+  <main class="login-page-main">
+    <div class="login-card">
+      <div class="login-header">
+        <h2 class="login-titulo">Bem-vindo(a) de volta!</h2>
+        <p class="login-subtitulo">Entre na sua conta para continuar compartilhando suas receitas</p>
+      </div>
+      
+      <form id="form-login" class="login-form">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <div class="input-container">
+            <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <div class="input-container">
+            <input type="password" id="senha" name="senha" required placeholder="Sua senha" />
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-login">Entrar</button>
+      </form>
+      
+      <div class="login-footer">
+        <p class="link-cadastro">
+          Não tem conta? <a href="registro.html" class="link-secundario">Cadastre-se aqui</a>
+        </p>
+        <p class="link-esqueci-senha">
+          <a href="#" class="link-esqueci">Esqueci minha senha</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="login.js"></script>
+</body>
+</html>
+

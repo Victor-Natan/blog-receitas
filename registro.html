@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="cabecalho">
+	<a href="index.html" class="logo-link"> <div class="logo">
+   	 <div class="logo-placeholder"><img src="./img/logoimg.png" alt="logo"></div>
+   	 <span>Receitas da Vó Neide</span>
+ 	 </div>
+	</a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="login.html" id="login-link">Login</a> </nav>
+  </header>
+
+  <main class="registro-page-main">
+    <div class="registro-card">
+      <div class="registro-header">
+        <h2 class="registro-titulo">Junte-se à nossa família!</h2>
+        <p class="registro-subtitulo">Crie sua conta e comece a compartilhar suas receitas especiais</p>
+      </div>
+      
+      <form id="form-registro" class="registro-form">
+        <div class="form-group">
+          <label for="nome">Nome Completo:</label>
+          <div class="input-container">
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <div class="input-container">
+            <input type="email" id="email" name="email" required placeholder="seu@email.com" />
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <div class="input-container">
+            <input type="password" id="senha" name="senha" required placeholder="Mínimo 6 caracteres" />
+          </div>
+          <div class="senha-requisitos">
+            <small>A senha deve ter pelo menos 6 caracteres</small>
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label class="checkbox-container">
+            <input type="checkbox" id="termos" name="termos" required>
+            <span class="checkmark"></span>
+            Eu concordo com os <a href="#" class="link-termos">termos de uso</a> e <a href="#" class="link-termos">política de privacidade</a>
+          </label>
+        </div>
+        
+        <button type="submit" class="btn-registro">Criar Minha Conta</button>
+      </form>
+      
+      <div class="registro-footer">
+        <p class="link-login">
+          Já tem conta? <a href="login.html" class="link-secundario">Faça login aqui</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script src="auth-status.js"></script> <script src="registro.js"></script>
+</body>
+</html>

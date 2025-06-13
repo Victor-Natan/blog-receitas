@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Receita - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="cabecalho">
+	<a href="index.html" class="logo-link"> <div class="logo">
+   	 <div class="logo-placeholder"><img src="./img/logoimg.png" alt="logo"></div>
+  	  <span>Receitas da Vó Neide</span>
+  	</div>
+	</a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <div class="user-menu">
+        <span id="usuario-nome" class="usuario-nome">Usuário</span>
+        <button id="btn-sair" class="btn-sair">Sair</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="visualizar-main">
+    <div class="receita-detalhes">
+      <div class="receita-header">
+        <h1 id="titulo-receita" class="receita-titulo"></h1>
+        <div class="receita-meta">
+          <span id="tipo-receita" class="receita-tipo"></span>
+        </div>
+      </div>
+
+      <!-- Layout otimizado: Imagem + Ingredientes lado a lado -->
+      <div class="receita-content-top">
+        <div class="receita-imagem-container">
+          <img id="img-receita" src="" alt="Imagem da Receita" class="receita-imagem">
+        </div>
+
+        <div class="receita-ingredientes">
+          <div class="receita-secao">
+            <h3>Ingredientes</h3>
+            <div id="ingredientes" class="ingredientes-lista"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modo de preparo em largura total abaixo -->
+      <div class="receita-content-bottom">
+        <div class="receita-secao">
+          <h3>Modo de Preparo</h3>
+          <div id="preparo" class="preparo-texto"></div>
+        </div>
+      </div>
+
+      <div class="receita-actions">
+        <a href="minha_receita.html" class="btn btn-voltar">Voltar às Minhas Receitas</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="auth-status.js"></script>
+  <script src="visualizar.js"></script>
+</body>
+</html>
+

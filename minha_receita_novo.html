@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Receitas - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style_novo.css">
+  <meta name="description" content="Gerencie suas receitas favoritas e compartilhadas na plataforma Receitas da Vó Neide.">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <div class="logo-placeholder">
+        <img src="./img/logoimg.png" alt="Logo Receitas da Vó Neide">
+      </div>
+      <span>Receitas da Vó Neide</span>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <a href="login.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero-gerenciador">
+      <div class="hero-content-gerenciador">
+        <h2 class="titulo-pagina">Minhas Receitas</h2>
+        <p class="subtitulo-pagina">Gerencie suas receitas favoritas e compartilhadas</p>
+      </div>
+    </section>
+
+    <section class="receitas-section">
+      <!-- Grid responsivo que receberá os cards gerados via JS -->
+      <div id="lista-receitas" class="receitas-grid"></div>
+      
+      <!-- Mensagem quando não há receitas -->
+      <div id="sem-receitas" class="sem-receitas" style="display: none;">
+        <div class="sem-receitas-content">
+          <h3>Você ainda não tem receitas</h3>
+          <p>Que tal adicionar sua primeira receita deliciosa?</p>
+          <a href="adicionar.html" class="btn">Adicionar Receita</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Receitas da Vó Neide - Todos os direitos reservados</p>
+    <p>Feito com ❤️ para compartilhar o amor pela culinária tradicional</p>
+    <p>Contato: contato@receitasdavoneide.com.br</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="auth-status.js"></script>
+  <script src="minha_receita.js"></script>
+</body>
+</html>
+

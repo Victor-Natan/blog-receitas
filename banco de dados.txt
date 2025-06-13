@@ -1,0 +1,74 @@
+-- Criar banco de dados
+CREATE DATABASE IF NOT EXISTS receitas_db DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE receitas_db;
+
+-- Tabela de usuários
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  senha VARCHAR(255) NOT NULL, -- Armazenar senha com hash
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tabela de receitas
+CREATE TABLE IF NOT EXISTS receitas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  titulo VARCHAR(200) NOT NULL,
+  imagem TEXT NOT NULL,
+  tipo VARCHAR(50) NOT NULL,
+  ingredientes TEXT NOT NULL,
+  preparo TEXT NOT NULL,
+  usuario_id INT NOT NULL,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+-- Inserir alguns usuários de exemplo
+-- NOTA: As senhas estão como texto puro para facilidade de teste, mas em produção, use hashes seguros!
+INSERT INTO usuarios (nome, email, senha) VALUES
+('Ana Silva', 'ana.silva@email.com', 'senha123'),
+('Pedro Costa', 'pedro.costa@email.com', 'segredo456'),
+('Mariana Lima', 'mariana.lima@email.com', 'cozinheiro789');
+
+-- Inserir receitas de exemplo
+INSERT INTO receitas (titulo, imagem, tipo, ingredientes, preparo, usuario_id) VALUES
+('Bife Acebolado com Batatas', 'img/bife-acebolado.jpg', 'carne',
+'500g de bife (contra-filé ou alcatra), 2 cebolas grandes, 3 batatas médias, Sal, pimenta-do-reino a gosto, Azeite.',
+'1. Tempere os bifes com sal e pimenta. 2. Corte as batatas em rodelas e cozinhe-as até ficarem macias. 3. Em uma frigideira, doure os bifes no azeite. Reserve. 4. Na mesma frigideira, refogue as cebolas em rodelas até ficarem transparentes. 5. Sirva os bifes com as cebolas por cima e as batatas cozidas ao lado.', 1),
+
+('Macarrão ao Molho Pesto', 'img/macarrao-pesto.jpg', 'massa',
+'200g de macarrão (espaguete ou fusilli), 1 xícara de manjericão fresco, 1/2 xícara de queijo parmesão ralado, 1/4 xícara de pinoli (ou nozes), 2 dentes de alho, 1/2 xícara de azeite de oliva extra virgem, Sal a gosto.',
+'1. Cozinhe o macarrão conforme as instruções da embalagem. 2. Em um processador, bata o manjericão, parmesão, pinoli e alho. 3. Adicione o azeite aos poucos e bata até formar uma pasta. Tempere com sal. 4. Misture o molho pesto ao macarrão cozido e escorrido. Sirva imediatamente.', 1),
+
+('Cheesecake de Frutas Vermelhas', 'img/cheesecake.jpg', 'sobremesa',
+'200g de biscoito maisena triturado, 100g de manteiga derretida, 500g de cream cheese, 1 lata de leite condensado, 1 caixa de creme de leite, 1 envelope de gelatina sem sabor, Frutas vermelhas para cobertura.',
+'1. Misture o biscoito triturado com a manteiga e forre o fundo de uma forma. Leve à geladeira. 2. Bata o cream cheese, leite condensado e creme de leite no liquidificador. 3. Dissolva a gelatina conforme as instruções e adicione à mistura do liquidificador. 4. Despeje sobre a base de biscoito e leve à geladeira por 4 horas. 5. Cubra com frutas vermelhas antes de servir.', 2),
+
+('Salmão Assado com Brócolis', 'img/salmao-brocolis.jpg', 'saudavel',
+'2 filés de salmão, 1 cabeça de brócolis, Azeite, Suco de 1 limão, Sal e pimenta-do-reino a gosto.',
+'1. Pré-aqueça o forno a 200°C. 2. Tempere o salmão com sal, pimenta e suco de limão. 3. Corte o brócolis em floretes e tempere com azeite, sal e pimenta. 4. Coloque o salmão e o brócolis em uma assadeira e asse por 15-20 minutos, ou até o salmão estar cozido e o brócolis macio.', 2),
+
+('Salada Caesar Clássica', 'img/salada-caesar.jpg', 'salada',
+'1 alface americana, 1 xícara de croutons, 1/2 xícara de queijo parmesão ralado, Para o molho: 1 ovo, 2 dentes de alho, 1 colher de sopa de mostarda dijon, Suco de 1 limão, 1/2 xícara de azeite, Sal e pimenta do reino.',
+'1. Lave e pique a alface. 2. Para o molho, bata todos os ingredientes no liquidificador, exceto o azeite, que deve ser adicionado em fio, batendo até emulsionar. 3. Em uma tigela grande, misture a alface, os croutons e o molho. Polvilhe com parmesão. Sirva.', 1),
+
+('Bolo de Cenoura com Cobertura de Chocolate', 'img/bolo-cenoura.jpg', 'bolo',
+'3 cenouras médias, 4 ovos, 1 xícara de óleo, 2 xícaras de açúcar, 2 xícaras de farinha de trigo, 1 colher de sopa de fermento em pó. Cobertura: 1 lata de leite condensado, 1 caixa de creme de leite, 4 colheres de sopa de chocolate em pó.',
+'1. Bata no liquidificador a cenoura, ovos e óleo. 2. Em uma tigela, misture a farinha e o açúcar. Adicione a mistura do liquidificador e o fermento. 3. Despeje em forma untada e enfarinhada e asse em forno médio por 40 minutos. 4. Para a cobertura, misture os ingredientes em uma panela e cozinhe até engrossar. Despeje sobre o bolo ainda quente.', 3),
+
+('Suco Detox Verde', 'img/suco-detox.jpg', 'bebida',
+'1 folha de couve, 1 maçã verde, 1 pedaço de gengibre (2cm), Suco de 1 limão, 200ml de água de coco.',
+'1. Lave bem todos os ingredientes. 2. Pique a couve, a maçã e o gengibre. 3. Bata tudo no liquidificador com a água de coco e o suco de limão. 4. Coe se preferir (opcional) e sirva imediatamente.', 3),
+
+('Caprese no Palito (Frio)', 'img/caprese-palito.jpg', 'frio',
+'Tomates cereja, Mini bolas de mussarela de búfala (ou queijo branco em cubos), Folhas de manjericão fresco, Azeite de oliva extra virgem, Sal e pimenta-do-reino moída na hora.',
+'1. Em palitos de churrasco pequenos ou de dente, intercale um tomate cereja, uma folha de manjericão e uma bola de mussarela. 2. Repita a sequência até preencher o palito. 3. Arrume os palitos em um prato, regue com azeite, tempere com sal e pimenta a gosto. Sirva gelado.', 1),
+
+('Lasanha à Bolonhesa (Italiana)', 'img/lasanha-bolonhesa.jpg', 'italiana',
+'500g de massa para lasanha, 500g de carne moída, 1 lata de molho de tomate, 200g de queijo mussarela fatiado, 200g de presunto fatiado, 1 cebola picada, 2 dentes de alho picados, Azeite, Sal, pimenta e orégano a gosto, Queijo parmesão ralado para gratinar.',
+'1. Refogue a cebola e o alho no azeite. Adicione a carne moída e cozinhe até dourar. Acrescente o molho de tomate, tempere e cozinhe por 10 minutos. 2. Em um refratário, intercale camadas de molho à bolonhesa, massa, presunto e mussarela. Repita até acabar os ingredientes. 3. Finalize com molho e bastante queijo parmesão. 4. Asse em forno pré-aquecido a 180°C por 30 minutos, ou até gratinar.', 2),
+
+('Torta de Limão', 'img/torta-limao.jpg', 'sobremesa',
+'Massa sablé: 125 g de açúcar (metade do peso da farinha), 250 g de farinha de trigo, 125 g de manteiga em temperatura ambiente, 1 ovo. Recheio principal de limão: 1 lata de leite condensado, 1/2 xícara de suco de limão fresco, Raspas de limão. Cobertura: 2 claras de ovo, 4 colheres de sopa de açúcar.',
+'1. Para a massa: Misture a farinha e o açúcar. Adicione a manteiga gelada em cubos e com a ponta dos dedos, misture até formar uma farofa. Adicione o ovo e amasse rapidamente até formar uma massa homogênea. Leve à geladeira por 30 minutos. Forre uma forma de torta e asse em forno pré-aquecido a 180°C por 15-20 minutos, ou até dourar levemente. Deixe esfriar. 2. Para o recheio: Em uma tigela, misture o leite condensado e o suco de limão até engrossar. Despeje sobre a massa já fria. 3. Para a cobertura (merengue): Bata as claras em neve e adicione o açúcar aos poucos, batendo até formar um merengue firme. Cubra a torta com o merengue e doure rapidamente no forno ou com um maçarico culinário. Leve à geladeira por no mínimo 2 horas antes de servir. Decore com raspas de limão.', 1);

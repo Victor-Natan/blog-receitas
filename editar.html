@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Receita - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecalho">
+	<a href="index.html" class="logo-link"> <div class="logo">
+  	  <div class="logo-placeholder"><img src="./img/logoimg.png" alt="logo"></div>
+   	 <span>Receitas da Vó Neide</span>
+  	</div>
+	</a>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html">Adicionar Receita</a>
+      <a href="minha_receita.html">Minhas Receitas</a>
+      <div class="user-menu">
+        <span id="usuario-nome" class="usuario-nome">Usuário</span>
+        <button id="btn-sair" class="btn-sair">Sair</button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="editar-main">
+    <section class="editar-container">
+      <div class="editar-header">
+        <h2>Editar Receita</h2>
+        <p>Atualize as informações da sua receita</p>
+      </div>
+      
+      <form id="form-editar" class="editar-form">
+        <input type="hidden" id="id" name="id">
+        
+        <div class="form-group">
+          <label for="titulo">Título da Receita:</label>
+          <input type="text" id="titulo" name="titulo" required placeholder="Nome da sua receita" />
+        </div>
+
+        <div class="form-group">
+          <label for="imagem">Imagem da Receita:</label>
+          <input type="file" id="imagem" name="imagem" accept="image/*">
+          <input type="url" id="imagem_url" name="imagem_url" placeholder="https://... (ou escolha um arquivo acima)">
+        </div>
+        
+        <div class="form-group">
+          <label for="tipo">Tipo de Receita:</label>
+          <select id="tipo" name="tipo" required>
+            <option value="" disabled selected>Selecione o tipo</option>
+            <option value="carne">Carnes</option>
+            <option value="massa">Massas</option>
+            <option value="bebida">Bebidas</option>
+            <option value="bolo">Bolos</option>
+            <option value="frio">Frios</option>
+            <option value="sobremesa">Sobremesas</option>
+            <option value="salada">Saladas</option>
+            <option value="saudavel">Saudável</option>
+            <option value="italiana">Italiana</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="ingredientes">Ingredientes:</label>
+          <textarea id="ingredientes" name="ingredientes" rows="6" required placeholder="Liste os ingredientes, um por linha"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="preparo">Modo de Preparo:</label>
+          <textarea id="preparo" name="preparo" rows="8" required placeholder="Descreva o passo a passo do preparo"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+          <a href="minha_receita.html" class="btn btn-secondary">Cancelar</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="editar.js"></script>
+</body>
+</html>
+

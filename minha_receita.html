@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minhas Receitas - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="cabecalho">
+	<a href="index.html" class="logo-link"> <div class="logo">
+   	 <div class="logo-placeholder"><img src="./img/logoimg.png" alt="logo"></div>
+   	 <span>Receitas da Vó Neide</span>
+ 	 </div>
+	</a>
+
+    <!-- Barra de pesquisa -->
+    <div class="search-container">
+      <input type="text" id="search-input" class="search-input" placeholder="Buscar receitas...">
+      <button id="search-btn" class="search-btn">🔍</button>
+    </div>
+
+    <nav>
+  	 <a href="index.html">Início</a>
+  	 <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+  	 <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+ 	 <a href="login.html" id="login-link">Login</a> </nav>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero gerenciador">
+      <div class="hero-content gerenciador-content">
+        <h2 class="titulo-pagina">Minhas Receitas</h2>
+        <p class="subtitulo-pagina">Gerencie suas receitas favoritas</p>
+      </div>
+    </section>
+
+    <!-- Grid responsivo que receberá os cards gerados via JS -->
+    <div id="lista-receitas" class="receitas-grid"></div>
+    
+    <!-- Mensagem quando não há receitas -->
+    <div id="sem-receitas" class="sem-receitas" style="display: none;">
+      <div class="sem-receitas-content">
+        <h3>Você ainda não tem receitas</h3>
+        <p>Que tal adicionar sua primeira receita deliciosa?</p>
+        <a href="adicionar.html" class="btn">Adicionar Receita</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="auth-status.js"></script>
+  <script src="index.js"></script> 
+  <script src="minha_receita.js"></script>
+</body>
+</html>
+

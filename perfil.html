@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Perfil - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Gerencie seu perfil e suas receitas no Receitas da Vó Neide.">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <div class="logo-placeholder"><img src="./img/logoimg.png" alt="logo"></div>
+      <span>Receitas da Vó Neide</span>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <a href="perfil.html" id="perfil-link">Meu Perfil</a>
+      <a href="logout.php" id="logout-link">Sair</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-perfil">
+      <div class="hero-content-perfil">
+        <div class="avatar-container">
+          <img src="img/default-avatar.png" alt="Avatar do Usuário" class="avatar" id="avatar-usuario">
+        </div>
+        <h1 class="nome-usuario" id="nome-usuario">Olá, Usuário!</h1>
+        <p class="email-usuario" id="email-usuario">usuario@email.com</p>
+        <div class="perfil-badges">
+          <span class="badge badge-chef">Chef Iniciante</span>
+          <span class="badge badge-receitas" id="total-receitas">0 receitas</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="perfil-conteudo">
+      <div class="container">
+        <div class="perfil-grid">
+          <!-- Card de Informações Pessoais -->
+          <div class="perfil-info-card">
+            <div class="card-header">
+              <h3 class="card-titulo">Minhas Informações</h3>
+              <div class="card-icon">👤</div>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Nome:</span>
+              <span class="info-value" id="info-nome">Carregando...</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Email:</span>
+              <span class="info-value" id="info-email">Carregando...</span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Membro desde:</span>
+              <span class="info-value" id="info-data-cadastro">Carregando...</span>
+            </div>
+            <button class="btn btn-secundario" onclick="editarPerfil()">
+              <span>✏️</span> Editar Perfil
+            </button>
+          </div>
+
+          <!-- Card de Ações Rápidas -->
+          <div class="perfil-acoes-card">
+            <div class="card-header">
+              <h3 class="card-titulo">Ações Rápidas</h3>
+              <div class="card-icon">⚡</div>
+            </div>
+            <div class="acoes-grid">
+              <a href="minha_receita.html" class="acao-item">
+                <div class="acao-icon">📖</div>
+                <span class="acao-titulo">Minhas Receitas</span>
+                <span class="acao-descricao">Visualizar e gerenciar</span>
+              </a>
+              <a href="adicionar.html" class="acao-item">
+                <div class="acao-icon">➕</div>
+                <span class="acao-titulo">Nova Receita</span>
+                <span class="acao-descricao">Compartilhar criação</span>
+              </a>
+              <a href="receita.html" class="acao-item">
+                <div class="acao-icon">🔍</div>
+                <span class="acao-titulo">Explorar</span>
+                <span class="acao-descricao">Descobrir receitas</span>
+              </a>
+              <a href="#" class="acao-item" onclick="configuracoes()">
+                <div class="acao-icon">⚙️</div>
+                <span class="acao-titulo">Configurações</span>
+                <span class="acao-descricao">Personalizar conta</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card de Estatísticas -->
+          <div class="perfil-stats-card">
+            <div class="card-header">
+              <h3 class="card-titulo">Suas Estatísticas</h3>
+              <div class="card-icon">📊</div>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <div class="stat-numero" id="stat-receitas">0</div>
+                <div class="stat-label">Receitas Criadas</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-numero" id="stat-visualizacoes">0</div>
+                <div class="stat-label">Visualizações</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-numero" id="stat-favoritos">0</div>
+                <div class="stat-label">Favoritos</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-numero" id="stat-comentarios">0</div>
+                <div class="stat-label">Comentários</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card de Receitas Recentes -->
+          <div class="perfil-receitas-recentes-card">
+            <div class="card-header">
+              <h3 class="card-titulo">Receitas Recentes</h3>
+              <div class="card-icon">🍽️</div>
+            </div>
+            <div class="receitas-recentes-lista" id="receitas-recentes">
+              <div class="receita-recente-item">
+                <div class="receita-recente-placeholder">
+                  <span>📝</span>
+                  <p>Suas receitas mais recentes aparecerão aqui</p>
+                </div>
+              </div>
+            </div>
+            <a href="minha_receita.html" class="btn btn-outline">Ver Todas as Receitas</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Receitas da Vó Neide - Todos os direitos reservados</p>
+    <p>Contato: contato@receitasdavoneide.com.br</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="auth-status.js"></script>
+  <script src="perfil.js"></script>
+</body>
+</html>
+

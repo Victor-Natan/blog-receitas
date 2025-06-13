@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas da Vó Neide - Sabores que Aquecem o Coração</title>
+  <link rel="stylesheet" href="style_novo.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+  <meta name="description" content="Descubra receitas caseiras deliciosas da Vó Neide. Pratos tradicionais, dicas culinárias e muito sabor em um só lugar.">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <div class="logo-placeholder">
+        <img src="./img/logoimg.png" alt="Logo Receitas da Vó Neide">
+      </div>
+      <span>Receitas da Vó Neide</span>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <a href="login.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Sabores que Aquecem o Coração</h1>
+      <p>Descubra receitas tradicionais da Vó Neide, repletas de amor e sabor caseiro que passam de geração em geração</p>
+      <div class="buttons">
+        <a href="#categorias" class="btn">
+          <span>Explorar Receitas</span>
+        </a>
+        <a href="adicionar.html" class="btn btn-alt">
+          <span>Compartilhar Receita</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <h2>Tradição e Sabor em Cada Receita</h2>
+    <p>No nosso cantinho especial, você encontra receitas autênticas que carregam o carinho e a sabedoria da cozinha tradicional. Cada prato conta uma história, cada ingrediente tem seu segredo.</p>
+  </section>
+
+  <main>
+    <section class="destaques" id="categorias">
+      <h2>Explore Nossas Categorias</h2>
+      
+      <!-- Grid de Categorias Modernizado -->
+      <div class="categorias-grid">
+        <a href="receita.html?tipo=carne" class="categoria-card">
+          <img src="img/carneimg.png" alt="Receitas de Carne">
+          <div class="categoria-card-content">
+            <h3>Carnes</h3>
+            <p>Pratos suculentos e saborosos para toda família</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=massa" class="categoria-card">
+          <img src="img/massaimg.png" alt="Receitas de Massa">
+          <div class="categoria-card-content">
+            <h3>Massas</h3>
+            <p>Delícias italianas com o toque especial da vovó</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=sobremesa" class="categoria-card">
+          <img src="img/sobremesaimg.png" alt="Sobremesas">
+          <div class="categoria-card-content">
+            <h3>Sobremesas</h3>
+            <p>Doces irresistíveis para adoçar seus dias</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=saudavel" class="categoria-card">
+          <img src="img/saudavelimg.png" alt="Receitas Saudáveis">
+          <div class="categoria-card-content">
+            <h3>Saudáveis</h3>
+            <p>Pratos nutritivos sem abrir mão do sabor</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=salada" class="categoria-card">
+          <img src="img/saladaimg.png" alt="Saladas">
+          <div class="categoria-card-content">
+            <h3>Saladas</h3>
+            <p>Frescor e leveza em combinações especiais</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=bolo" class="categoria-card">
+          <img src="img/boloimg.png" alt="Bolos">
+          <div class="categoria-card-content">
+            <h3>Bolos</h3>
+            <p>Bolos caseiros para celebrar momentos especiais</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=frio" class="categoria-card">
+          <img src="img/frioimg.png" alt="Pratos Frios">
+          <div class="categoria-card-content">
+            <h3>Pratos Frios</h3>
+            <p>Opções refrescantes para dias quentes</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=bebida" class="categoria-card">
+          <img src="img/bebidaimg.png" alt="Bebidas">
+          <div class="categoria-card-content">
+            <h3>Bebidas</h3>
+            <p>Refrescos e bebidas especiais da casa</p>
+          </div>
+        </a>
+
+        <a href="receita.html?tipo=italiana" class="categoria-card">
+          <img src="img/italianaimg.png" alt="Culinária Italiana">
+          <div class="categoria-card-content">
+            <h3>Italiana</h3>
+            <p>Sabores autênticos da tradição italiana</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- Seção de Receitas em Destaque (Swiper mantido para receitas específicas) -->
+      <h2 style="margin-top: 4rem; margin-bottom: 2rem;">Receitas em Destaque</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=carne">
+              <img src="img/carneimg.png" alt="Receita de Carne em Destaque">
+              <h3>Carne Especial da Vó</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=massa">
+              <img src="img/massaimg.png" alt="Receita de Massa em Destaque">
+              <h3>Massa Tradicional</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=sobremesa">
+              <img src="img/sobremesaimg.png" alt="Sobremesa em Destaque">
+              <h3>Sobremesa da Casa</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=saudavel">
+              <img src="img/saudavelimg.png" alt="Receita Saudável em Destaque">
+              <h3>Prato Saudável</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=salada">
+              <img src="img/saladaimg.png" alt="Salada em Destaque">
+              <h3>Salada Especial</h3>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Receitas da Vó Neide - Todos os direitos reservados</p>
+    <p>Feito com ❤️ para compartilhar o amor pela culinária tradicional</p>
+    <p>Contato: contato@receitasdavoneide.com.br</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="auth-status.js"></script>
+  <script>
+    // Inicialização do Swiper com configurações melhoradas
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 'auto',
+      spaceBetween: 24,
+      centeredSlides: false,
+      loop: true,
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 16
+        },
+        480: {
+          slidesPerView: 2.2,
+          spaceBetween: 20
+        },
+        768: {
+          slidesPerView: 3.5,
+          spaceBetween: 24
+        },
+        1024: {
+          slidesPerView: 4.5,
+          spaceBetween: 28
+        },
+        1200: {
+          slidesPerView: 5.5,
+          spaceBetween: 32
+        }
+      }
+    });
+
+    // Efeito de scroll no header
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.cabecalho');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Animação de entrada para cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    // Aplicar animação aos cards de categoria
+    document.querySelectorAll('.categoria-card').forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = `opacity 0.6s ease-out ${index * 0.1}s, transform 0.6s ease-out ${index * 0.1}s`;
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+</head>
+<body>
+  <header class="cabecalho">
+    <a href="index.html" class="logo-link"> <div class="logo">
+        <div class="logo-placeholder">
+          <img src="img/logoimg.png" alt="Logo Receitas da Vó Neide">
+        </div>
+        <span>Receitas da Vó Neide</span>
+      </div>
+    </a>
+    
+    <div class="search-container">
+      <input type="text" id="search-input" class="search-input" placeholder="Buscar receitas...">
+      <button id="search-btn" class="search-btn">🔍</button>
+    </div>
+    
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <a href="login.html" id="login-link">Login</a> </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Descubra o sabor que combina com você</h1>
+      <p>Receitas saudáveis, clássicas e criativas em um só lugar</p>
+      <div class="buttons">
+        <a href="#destaques" class="btn">Ver receitas</a>
+        <a href="adicionar.html" class="btn btn-alt">Adicionar receita</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro section-white">
+    <h2>Feito para quem ama cozinhar e compartilhar</h2>
+    <p>No Blog de Receitas, você encontra pratos deliciosos, passo a passo detalhado, e pode compartilhar suas próprias receitas com o mundo.</p>
+  </section>
+
+  <main>
+    <section class="destaques section-light-gray" id="destaques">
+      <h2>Receitas em Destaque</h2>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=carne" class="categoria-card" data-categoria="carne"> 
+              <img src="img/carneimg.png" alt="Receitas de Carne">
+              <h3>Carne</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=massa" class="categoria-card" data-categoria="massa">
+              <img src="img/massaimg.png" alt="Receitas de Massas">
+              <h3>Massa</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=sobremesa" class="categoria-card" data-categoria="sobremesa">
+              <img src="img/sobremesaimg.png" alt="Receitas de Sobremesa">
+              <h3>Sobremesa</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=saudavel" class="categoria-card" data-categoria="saudavel">
+              <img src="img/saudavelimg.png" alt="Receitas Saudáveis">
+              <h3>Saudável</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=salada" class="categoria-card" data-categoria="salada">
+              <img src="img/saladaimg.png" alt="Receitas de Salada">
+              <h3>Salada</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=bolo" class="categoria-card" data-categoria="bolo">
+              <img src="img/boloimg.png" alt="Receitas de Bolo">
+              <h3>Bolo</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=frio" class="categoria-card" data-categoria="frio">
+              <img src="img/frioimg.png" alt="Receitas de Pratos Frios">
+              <h3>Frio</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=bebida" class="categoria-card" data-categoria="bebida">
+              <img src="img/bebidaimg.png" alt="Receitas de Bebidas">
+              <h3>Bebida</h3>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="receita.html?tipo=italiana" class="categoria-card" data-categoria="italiana">
+              <img src="img/italianaimg.png" alt="Receitas Italianas">
+              <h3>Italiana</h3>
+            </a>
+          </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </section>
+
+    <section class="categorias section-white">
+      <h2>Explore Nossas Categorias</h2>
+      <div class="categorias-grid">
+        <a href="receita.html?tipo=massa" class="categoria-card" data-categoria="massa"> 
+          <img src="img/massaimg.png" alt="Categorias de Massas">
+          <div class="categoria-card-content">
+            <h3>Massas</h3>
+            <p>Deliciosas receitas de massas para todos os gostos.</p>
+            </div>
+        </a>
+        <a href="receita.html?tipo=carne" class="categoria-card" data-categoria="carne">
+          <img src="img/carneimg.png" alt="Categorias de Carnes">
+          <div class="categoria-card-content">
+            <h3>Carnes</h3>
+            <p>Pratos suculentos com diversos tipos de carne.</p>
+            </div>
+        </a>
+        <a href="receita.html?tipo=sobremesa" class="categoria-card" data-categoria="sobremesa">
+          <img src="img/sobremesaimg.png" alt="Categorias de Doces">
+          <div class="categoria-card-content">
+            <h3>Doces</h3>
+            <p>Sobremesas irresistíveis para adoçar seu dia.</p>
+            </div>
+        </a>
+        <a href="receita.html?tipo=bebida" class="categoria-card" data-categoria="bebida">
+          <img src="img/bebidaimg.png" alt="Categorias de Bebidas">
+          <div class="categoria-card-content">
+            <h3>Bebidas</h3>
+            <p>Refrescantes e saborosas opções de bebidas.</p>
+            </div>
+        </a>
+        <a href="receita.html?tipo=salada" class="categoria-card" data-categoria="salada">
+          <img src="img/saladaimg.png" alt="Categorias de Saladas">
+          <div class="categoria-card-content">
+            <h3>Saladas</h3>
+            <p>Opções leves e saudáveis para suas refeições.</p>
+            </div>
+        </a>
+        <a href="receita.html?tipo=bolo" class="categoria-card" data-categoria="bolo">
+          <img src="img/boloimg.png" alt="Categorias de Bolos">
+          <div class="categoria-card-content">
+            <h3>Bolos</h3>
+            <p>Receitas de bolos para todas as ocasiões.</p>
+            </div>
+        </a>
+        <a href="receita.html?tipo=frio" class="categoria-card" data-categoria="frio">
+          <img src="img/frioimg.png" alt="Receitas de Frios">
+          <div class="categoria-card-content">
+            <h3>Frios</h3>
+            <p>Opções refrescantes para dias quentes.</p>
+            </div>
+        </a>
+        <a href="receita.html?tipo=italiana" class="categoria-card" data-categoria="italiana">
+          <img src="img/italianaimg.png" alt="Receitas Italianas">
+          <div class="categoria-card-content">
+            <h3>Italianas</h3>
+            <p>O melhor da culinária italiana.</p>
+            </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Receitas da Vó Neide - Todos os direitos reservados.</p>
+    <p>Contato: <a href="mailto:contato@receitasdavoneide.com.br" style="color: var(--cor-texto-claro); text-decoration: underline;">contato@receitasdavoneide.com.br</a></p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="auth-status.js"></script>
+  <script src="index.js"></script>
+  
+  <script>
+    // Inicialização do Swiper
+    const swiper = new Swiper(".swiper", {
+      slidesPerView: "auto",
+      spaceBetween: 20,
+      centeredSlides: false,
+      loop: false,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 15,
+        },
+        480: {
+          slidesPerView: 2.2,
+          spaceBetween: 15,
+        },
+        768: {
+          slidesPerView: 3.5,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 4.5,
+          spaceBetween: 25,
+        },
+        1200: {
+          slidesPerView: 5.5,
+          spaceBetween: 30,
+        },
+      },
+    });
+
+    // Adiciona classe 'scrolled' ao cabeçalho ao rolar a página
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('.cabecalho');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

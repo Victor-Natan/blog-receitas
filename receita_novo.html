@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Receitas - Receitas da Vó Neide</title>
+  <link rel="stylesheet" href="style_novo.css" />
+  <meta name="description" content="Explore uma vasta coleção de receitas deliciosas e fáceis de fazer no Receitas da Vó Neide.">
+</head>
+<body>
+  <header class="cabecalho">
+    <div class="logo">
+      <div class="logo-placeholder">
+        <img src="./img/logoimg.png" alt="Logo Receitas da Vó Neide">
+      </div>
+      <span>Receitas da Vó Neide</span>
+    </div>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="adicionar.html" id="adicionar-link">Adicionar Receita</a>
+      <a href="minha_receita.html" id="minhas-receitas-link">Minhas Receitas</a>
+      <a href="login.html" id="login-link">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="receitas-list-section">
+      <div class="page-header">
+        <h1 class="titulo-pagina" id="titulo-receita">Nossas Receitas</h1>
+        <p class="subtitulo-pagina">Descubra pratos incríveis para todas as ocasiões</p>
+      </div>
+      <div id="lista-receitas" class="receitas-grid">
+        <!-- Cards das receitas carregadas via JS aparecerão aqui -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Receitas da Vó Neide - Todos os direitos reservados</p>
+    <p>Feito com ❤️ para compartilhar o amor pela culinária tradicional</p>
+    <p>Contato: contato@receitasdavoneide.com.br</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="auth-status.js"></script>
+  <script src="receita.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,7860 @@
+/* Receitas da Vó Neide - CSS Modernizado */
+
+/* Importação de fontes modernas */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap");
+
+/* Variáveis CSS modernas */
+:root {
+  /* Paleta de cores principal */
+  --cor-primaria: #E67E22;
+  --cor-primaria-escura: #D35400;
+  --cor-primaria-clara: #F39C12;
+  --cor-secundaria: #27AE60;
+  --cor-secundaria-escura: #229954;
+  --cor-secundaria-clara: #58D68D;
+  --cor-destaque: #F39C12;
+  
+  /* Cores neutras */
+  --cor-fundo: #FFFFFF;
+  --cor-fundo-secundario: #F8F9FA;
+  --cor-fundo-card: #FFFFFF;
+  --cor-texto-primario: #343A40;
+  --cor-texto-secundario: #6C757D;
+  --cor-texto-claro: #FFFFFF;
+  --cor-borda: #E9ECEF;
+  --cor-borda-hover: #DEE2E6;
+  
+  /* Cores de estado */
+  --cor-sucesso: #27AE60;
+  --cor-erro: #E74C3C;
+  --cor-aviso: #F39C12;
+  --cor-info: #3498DB;
+  
+  /* Sombras modernas */
+  --sombra-pequena: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --sombra-media: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --sombra-grande: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --sombra-hover: 0 8px 24px rgba(231, 126, 34, 0.2);
+  
+  /* Tipografia */
+  --fonte-primaria: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fonte-display: 'Playfair Display', Georgia, serif;
+  
+  /* Espaçamentos */
+  --espacamento-xs: 0.25rem;
+  --espacamento-sm: 0.5rem;
+  --espacamento-md: 1rem;
+  --espacamento-lg: 1.5rem;
+  --espacamento-xl: 2rem;
+  --espacamento-xxl: 3rem;
+  
+  /* Bordas */
+  --borda-radius: 12px;
+  --borda-radius-pequeno: 6px;
+  --borda-radius-grande: 16px;
+  
+  /* Transições */
+  --transicao-rapida: 0.2s ease-out;
+  --transicao-media: 0.3s ease-out;
+  --transicao-lenta: 0.5s ease-out;
+}
+
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--fonte-primaria);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  line-height: 1.6;
+  padding-top: 80px;
+  overflow-x: hidden;
+}
+
+/* Cabeçalho moderno e fixo */
+.cabecalho {
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  backdrop-filter: blur(10px);
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: var(--sombra-media);
+  transition: all var(--transicao-media);
+}
+
+.cabecalho.scrolled {
+  padding: var(--espacamento-sm) var(--espacamento-xl);
+  box-shadow: var(--sombra-grande);
+}
+
+.logo-link {
+  text-decoration: none; 
+  color: inherit; 
+  display: flex; 
+  align-items: center; 
+}
+
+.logo-link:hover .logo {
+  transform: scale(1.02); 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  font-family: var(--fonte-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  transition: transform var(--transicao-rapida);
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-placeholder {
+  width: 48px;
+  height: 48px;
+  background: var(--cor-fundo-card);
+  border-radius: var(--borda-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-pequena);
+  transition: all var(--transicao-rapida);
+}
+
+.logo-placeholder img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.logo:hover .logo-placeholder {
+  transform: scale(1.1);
+  box-shadow: var(--sombra-media);
+}
+
+.cabecalho nav {
+  display: flex;
+  gap: var(--espacamento-lg);
+  align-items: center;
+}
+
+.cabecalho nav a {
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  font-weight: 500;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border-radius: var(--borda-radius-pequeno);
+  transition: all var(--transicao-rapida);
+  position: relative;
+  overflow: hidden;
+}
+
+.cabecalho nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: left var(--transicao-media);
+}
+
+.cabecalho nav a:hover::before {
+  left: 0;
+}
+
+.cabecalho nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Estilos para o campo de busca no cabeçalho */
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: var(--borda-radius);
+  overflow: hidden; 
+  transition: all var(--transicao-media);
+  width: 250px; 
+  max-width: 300px;
+  margin-left: var(--espacamento-lg);
+  padding: 0; 
+}
+
+.search-container:focus-within {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  width: 300px; 
+}
+
+.search-input {
+  flex-grow: 1;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border: none;
+  background: transparent;
+  color: var(--cor-texto-claro);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-btn {
+  background-color: transparent;
+  border: none;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  cursor: pointer;
+  color: var(--cor-texto-claro);
+  font-size: 1.1rem;
+  flex-shrink: 0; 
+  opacity: 0; 
+  pointer-events: none; 
+  transform: translateX(100%); 
+  transition: opacity var(--transicao-media), transform var(--transicao-media); 
+}
+
+.search-container:focus-within .search-btn {
+  opacity: 1; 
+  pointer-events: auto; 
+  transform: translateX(0); 
+}
+
+/* Seção Hero modernizada */
+.hero {
+  background: linear-gradient(135deg, rgba(230, 126, 34, 0.9) 0%, rgba(211, 84, 0, 0.9) 100%),
+              url('img/variedad-recetas-indias-comida-variada_79295-7226.avif') center/cover;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--cor-texto-claro);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(230, 126, 34, 0.1) 0%, rgba(211, 84, 0, 0.1) 100%);
+  animation: heroAnimation 20s ease-in-out infinite;
+}
+
+@keyframes heroAnimation {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(-10px) translateY(-5px); }
+  50% { transform: translateX(10px) translateY(5px); }
+  75% { transform: translateX(-5px) translateY(10px); }
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: var(--espacamento-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: var(--espacamento-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: var(--espacamento-xl);
+  opacity: 0.95;
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: var(--espacamento-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-hover);
+  background: var(--cor-primaria-clara);
+}
+
+.btn-alt {
+  background: transparent;
+  border: 2px solid var(--cor-texto-claro);
+  color: var(--cor-texto-claro);
+}
+
+.btn-alt:hover {
+  background: var(--cor-texto-claro);
+  color: var(--cor-primaria);
+}
+
+/* Seção de introdução */
+.intro {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+  background: var(--cor-fundo-secundario);
+}
+
+.intro h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+  font-weight: 600;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  color: var(--cor-texto-secundario);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Seção de destaques modernizada */
+.destaques {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  background: var(--cor-fundo);
+}
+
+.destaques h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-primaria);
+  text-align: center;
+  margin-bottom: var(--espacamento-xxl);
+  font-weight: 600;
+}
+
+/* Grid de categorias moderno */
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espacamento-xl) 0;
+}
+
+.categoria-card {
+  background: var(--cor-fundo-card);
+  border-radius: var(--borda-radius);
+  overflow: hidden;
+  box-shadow: var(--sombra-pequena);
+  transition: all var(--transicao-media);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.categoria-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-hover);
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.categoria-card:hover img {
+  transform: scale(1.05);
+}
+
+.categoria-card-content {
+  padding: var(--espacamento-lg);
+  text-align: center;
+}
+
+.categoria-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-sm);
+}
+
+.categoria-card p {
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+}
+
+/* Swiper personalizado */
+.swiper {
+  width: 100%;
+  padding: var(--espacamento-md) 0 var(--espacamento-xl);
+}
+
+.swiper-slide {
+  width: 280px;
+  height: auto;
+}
+
+.swiper-slide a {
+  display: block;
+  background: var(--cor-fundo-card);
+  border-radius: var(--borda-radius);
+  overflow: hidden;
+  box-shadow: var(--sombra-pequena);
+  transition: all var(--transicao-media);
+  text-decoration: none;
+  color: inherit;
+}
+
+.swiper-slide a:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-hover);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.swiper-slide h3 {
+  padding: var(--espacamento-md);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  text-align: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cor-primaria);
+  background: var(--cor-fundo-card);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  box-shadow: var(--sombra-media);
+  transition: all var(--transicao-rapida);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Footer modernizado */
+footer {
+  background: linear-gradient(135deg, var(--cor-texto-primario) 0%, #2C3E50 100%);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-xxl) var(--espacamento-xl) var(--espacamento-xl);
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: var(--espacamento-sm);
+  opacity: 0.9;
+}
+
+footer p:last-child {
+  margin-bottom: 0;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cabecalho {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+    flex-direction: column;
+    gap: var(--espacamento-sm);
+  }
+  
+  .cabecalho nav {
+    gap: var(--espacamento-md);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  .hero {
+    min-height: 60vh;
+  }
+  
+  .hero-content {
+    padding: var(--espacamento-lg);
+  }
+  
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .categorias-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-lg);
+    padding: var(--espacamento-lg) var(--espacamento-md);
+  }
+  
+  .destaques,
+  .intro {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 120px;
+  }
+  
+  .cabecalho nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .intro h2,
+  .destaques h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Animações e micro-interações */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.categoria-card:hover {
+  animation: pulse 2s infinite;
+}
+
+/* Estados de loading */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid var(--cor-primaria);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Melhorias de acessibilidade */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus states */
+a:focus,
+button:focus {
+  outline: 2px solid var(--cor-primaria);
+  outline-offset: 2px;
+}
+
+/* Smooth scrolling para navegação */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Estilos para o formulário */
+.form-section {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  background-color: var(--cor-fundo-secundario);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-media);
+  max-width: 600px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="url"],
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: var(--espacamento-md);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--borda-radius-pequeno);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: border-color var(--transicao-rapida), box-shadow var(--transicao-rapida);
+}
+
+.form-group input[type="file"] {
+  padding: var(--espacamento-sm);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+  outline: none;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transicao-rapida), transform var(--transicao-rapida), box-shadow var(--transicao-rapida);
+  box-shadow: var(--sombra-pequena);
+}
+
+.btn-submit:hover {
+  background: var(--cor-primaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.form-link-text {
+  text-align: center;
+  margin-top: var(--espacamento-lg);
+  color: var(--cor-texto-secundario);
+}
+
+.form-link {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.form-link:hover {
+  color: var(--cor-primaria-escura);
+  text-decoration: underline;
+}
+
+/* Estilos para a página de Minhas Receitas */
+.hero-gerenciador {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(34, 153, 84, 0.9) 100%),
+              url('img/vegetables-set-dark-background-top-view_1150-38200.avif') center/cover;
+  min-height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--cor-texto-claro);
+  position: relative;
+  overflow: hidden;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+}
+
+.hero-content-gerenciador {
+  max-width: 800px;
+  padding: var(--espacamento-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content-gerenciador h2 {
+  font-family: var(--fonte-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--espacamento-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content-gerenciador p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+.receitas-section {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  background-color: var(--cor-fundo);
+}
+
+.receitas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espacamento-xl) 0;
+}
+
+.receita-card {
+  background: var(--cor-fundo-card);
+  border-radius: var(--borda-radius);
+  overflow: hidden;
+  box-shadow: var(--sombra-pequena);
+  transition: all var(--transicao-media);
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.receita-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-hover);
+}
+
+.receita-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.receita-card-content {
+  padding: var(--espacamento-lg);
+}
+
+.receita-card h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-sm);
+}
+
+.receita-card p {
+  color: var(--cor-texto-secundario);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.receita-card .categoria-tag {
+  display: inline-block;
+  background-color: var(--cor-secundaria-clara);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: var(--espacamento-sm);
+}
+
+.sem-receitas {
+  text-align: center;
+  padding: var(--espacamento-xxl);
+  color: var(--cor-texto-secundario);
+}
+
+.sem-receitas-content h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+}
+
+.sem-receitas-content p {
+  font-size: 1.1rem;
+  margin-bottom: var(--espacamento-xl);
+  line-height: 1.5;
+}
+
+/* Responsividade para Minhas Receitas */
+@media (max-width: 768px) {
+  .receitas-grid {
+    grid-template-columns: 1fr;
+    padding: var(--espacamento-lg);
+    gap: var(--espacamento-lg);
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-md);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.2rem;
+  }
+  
+  .receita-card-actions {
+    flex-direction: column;
+  }
+  
+  .receita-card-btn {
+    padding: var(--espacamento-md);
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    gap: var(--espacamento-xs);
+  }
+  
+  .usuario-nome {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sair {
+    font-size: 0.8rem;
+    padding: var(--espacamento-xs) var(--espacamento-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .receitas-grid {
+    padding: var(--espacamento-md);
+    gap: var(--espacamento-md);
+  }
+  
+  .receita-card-imagem {
+    height: 160px;
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-sm);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.1rem;
+  }
+  
+  .receita-card-ingredientes {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Estilos para a página Visualizar Receita - Layout Otimizado */
+.visualizar-main {
+  padding: var(--espacamento-xl) 0;
+  background-color: var(--cor-fundo);
+}
+
+.receita-detalhes {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espacamento-xl);
+}
+
+.receita-header {
+  text-align: center;
+  margin-bottom: var(--espacamento-xxl);
+  padding: var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  border-radius: var(--borda-radius-grande);
+  color: var(--cor-texto-claro);
+}
+
+.receita-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--espacamento-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.receita-meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+}
+
+.receita-tipo {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+/* Layout otimizado: Imagem + Ingredientes lado a lado */
+.receita-content-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-xxl);
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-imagem-container {
+  position: relative;
+  border-radius: var(--borda-radius-grande);
+  overflow: hidden;
+  box-shadow: var(--sombra-grande);
+  height: fit-content;
+}
+
+.receita-imagem {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.receita-imagem:hover {
+  transform: scale(1.05);
+}
+
+.receita-ingredientes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Modo de preparo em largura total */
+.receita-content-bottom {
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-secao {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  border-left: 5px solid var(--cor-secundaria);
+  height: 100%;
+}
+
+.receita-secao h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-lg);
+  font-weight: 600;
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: var(--espacamento-sm);
+}
+
+.ingredientes-lista {
+  color: var(--cor-texto);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.ingredientes-lista ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ingredientes-lista li::before {
+  content: '•';
+  color: var(--cor-primaria);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.receita-actions {
+  text-align: center;
+  margin-top: var(--espacamento-xxl);
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+}
+
+.btn-voltar:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Responsividade para Visualizar */
+@media (min-width: 768px) {
+  .receita-content-top {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-xl);
+  }
+
+  .receita-imagem {
+    height: 300px;
+  }
+
+  .receita-titulo {
+    font-size: 2rem;
+  }
+
+  .receita-detalhes {
+    padding: 0 var(--espacamento-lg);
+  }
+}
+
+/* Estilos gerais para o container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espacamento-xl);
+}
+
+/* Estilos para o cabeçalho das páginas internas */
+.page-header {
+  text-align: center;
+  padding: var(--espacamento-xxl) var(--espacamento-xl) var(--espacamento-xl);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+}
+
+.page-header .titulo-pagina {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+  font-weight: 700;
+}
+
+.page-header .subtitulo-pagina {
+  font-size: 1.2rem;
+  color: var(--cor-texto-secundario);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+
+
+/* Estilos para a página de Login aprimorada */
+.login-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.login-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+}
+
+.login-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.login-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.login-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.login-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.login-form input[type="email"]:hover,
+.login-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.btn-login {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+  background: linear-gradient(135deg, var(--cor-primaria-clara) 0%, var(--cor-primaria) 100%);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.login-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-cadastro {
+  margin-bottom: var(--espacamento-md);
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-primaria-escura);
+  text-decoration: underline;
+}
+
+.link-esqueci-senha {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.link-esqueci {
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-esqueci:hover {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsividade para a página de login */
+@media (max-width: 768px) {
+  .login-page-main {
+    padding: var(--espacamento-lg);
+    min-height: calc(100vh - 120px);
+  }
+  
+  .login-card {
+    padding: var(--espacamento-xl);
+    max-width: 100%;
+  }
+  
+  .login-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .login-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: var(--espacamento-lg);
+    margin: var(--espacamento-md);
+  }
+  
+  .login-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+  }
+}
+
+
+/* Estilos para a página de Perfil do Usuário */
+.hero-perfil {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(34, 153, 84, 0.9) 100%),
+              url('img/vegetables-set-dark-background-top-view_1150-38200.avif') center/cover;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+  color: var(--cor-texto-claro);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-perfil::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(39, 174, 96, 0.1) 0%, rgba(34, 153, 84, 0.1) 100%);
+  animation: heroAnimation 20s ease-in-out infinite;
+}
+
+.hero-content-perfil {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--espacamento-md);
+  border: 4px solid var(--cor-texto-claro);
+  box-shadow: var(--sombra-media);
+  cursor: pointer;
+  transition: transform var(--transicao-media);
+}
+
+.avatar-container:hover {
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--cor-fundo-secundario);
+}
+
+.nome-usuario {
+  font-family: var(--fonte-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--espacamento-sm);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.email-usuario {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: var(--espacamento-md);
+}
+
+.perfil-badges {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-chef {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.badge-receitas {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-claro);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.badge-master {
+  background-color: #FFD700;
+  color: #333;
+}
+
+.badge-experiente {
+  background-color: #C0C0C0;
+  color: #333;
+}
+
+.badge-intermediario {
+  background-color: #CD7F32;
+  color: var(--cor-texto-claro);
+}
+
+.badge-iniciante {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.perfil-conteudo {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  background-color: var(--cor-fundo);
+}
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.perfil-info-card,
+.perfil-acoes-card,
+.perfil-stats-card,
+.perfil-receitas-recentes-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+  transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.perfil-info-card:hover,
+.perfil-acoes-card:hover,
+.perfil-stats-card:hover,
+.perfil-receitas-recentes-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--espacamento-lg);
+  padding-bottom: var(--espacamento-md);
+  border-bottom: 2px solid var(--cor-borda);
+}
+
+.card-titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-sm) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.info-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: var(--espacamento-lg);
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+}
+
+.info-value {
+  color: var(--cor-texto-primario);
+  font-weight: 500;
+}
+
+.btn-secundario {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+}
+
+.btn-secundario:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.acoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--espacamento-md);
+}
+
+.acao-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--espacamento-lg);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transicao-media);
+  border: 2px solid transparent;
+}
+
+.acao-item:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-3px);
+  border-color: var(--cor-primaria-escura);
+  box-shadow: var(--sombra-media);
+}
+
+.acao-icon {
+  font-size: 2rem;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.acao-titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.acao-descricao {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--espacamento-lg);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+}
+
+.stat-numero {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-family: var(--fonte-display);
+  line-height: 1;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+}
+
+.receitas-recentes-lista {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.receita-recente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-md);
+  transition: background-color var(--transicao-rapida);
+}
+
+.receita-recente-item:hover {
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-item:last-child {
+  margin-bottom: 0;
+}
+
+.receita-recente-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  flex: 1;
+}
+
+.receita-recente-img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--borda-radius-pequeno);
+  object-fit: cover;
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-detalhes {
+  flex: 1;
+}
+
+.receita-recente-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  margin: 0 0 var(--espacamento-xs) 0;
+}
+
+.receita-recente-categoria {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.btn-ver-receita {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color var(--transicao-rapida);
+}
+
+.btn-ver-receita:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.receita-recente-placeholder {
+  text-align: center;
+  padding: var(--espacamento-xl);
+  color: var(--cor-texto-secundario);
+}
+
+.receita-recente-placeholder span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--espacamento-md);
+  opacity: 0.5;
+}
+
+.btn-outline {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: transparent;
+  color: var(--cor-primaria);
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--borda-radius);
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transicao-media);
+  display: block;
+}
+
+.btn-outline:hover {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+/* Responsividade para a página de perfil */
+@media (max-width: 768px) {
+  .perfil-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .perfil-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-perfil {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-conteudo {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-info-card,
+  .perfil-acoes-card,
+  .perfil-stats-card,
+  .perfil-receitas-recentes-card {
+    padding: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .receita-recente-info {
+    gap: var(--espacamento-sm);
+  }
+  
+  .receita-recente-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+/* Estilos para a página de Cadastro (Registro) aprimorada */
+.registro-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.registro-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl); /* Mantido em 3rem (48px) de padding geral */
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.registro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+}
+
+.registro-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.registro-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.registro-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.registro-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.registro-form input[type="text"],
+.registro-form input[type="email"],
+.registro-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.registro-form input[type="text"]:focus,
+.registro-form input[type="email"]:focus,
+.registro-form input[type="password"]:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.registro-form input[type="text"]:hover,
+.registro-form input[type="email"]:hover,
+.registro-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.senha-requisitos {
+  margin-top: var(--espacamento-xs);
+}
+
+.senha-requisitos small {
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.checkbox-group {
+  margin-bottom: var(--espacamento-xl) !important;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacamento-sm);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--cor-texto-secundario);
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius-pequeno);
+  background-color: var(--cor-fundo);
+  position: relative;
+  transition: all var(--transicao-rapida);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--cor-texto-claro);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.link-termos {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-termos:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+.btn-registro {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-secundaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-registro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-registro:hover::before {
+  left: 100%;
+}
+
+.btn-registro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(39, 174, 96, 0.3);
+  background: linear-gradient(135deg, var(--cor-secundaria-clara) 0%, var(--cor-secundaria) 100%);
+}
+
+.btn-registro:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.btn-registro:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registro-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-login {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+/* Estados de validação para os campos */
+.registro-form input.valid {
+  border-color: var(--cor-sucesso);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+}
+
+.registro-form input.invalid {
+  border-color: var(--cor-erro);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+.error-message {
+  color: var(--cor-erro);
+  font-size: 0.85rem;
+  margin-top: var(--espacamento-xs);
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
+/* Responsividade para a página de cadastro */
+@media (max-width: 768px) {
+  .registro-page-main {
+    padding: var(--espacamento-lg);
+    min-height: calc(100vh - 120px);
+  }
+  
+  .registro-card {
+    padding: var(--espacamento-xl);
+    max-width: 100%;
+  }
+  
+  .registro-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .registro-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registro-card {
+    padding: var(--espacamento-lg);
+    margin: var(--espacamento-md);
+  }
+  
+  .registro-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .registro-form input[type="text"],
+  .registro-form input[type="email"],
+  .registro-form input[type="password"] {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+  }
+  
+  .checkbox-container {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animação para feedback de sucesso */
+.success-message {
+  background-color: var(--cor-sucesso);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  margin-bottom: var(--espacamento-lg);
+  text-align: center;
+  font-weight: 500;
+  display: none;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.success-message.show {
+  display: block;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Indicador de força da senha */
+.senha-strength {
+  margin-top: var(--espacamento-xs);
+  height: 4px;
+  background-color: var(--cor-borda);
+  border-radius: 2px;
+  overflow: hidden;
+  display: none;
+}
+
+.senha-strength.show {
+  display: block;
+}
+
+.senha-strength-bar {
+  height: 100%;
+  width: 0%;
+  transition: all var(--transicao-media);
+  border-radius: 2px;
+}
+
+.senha-strength-bar.weak {
+  width: 33%;
+  background-color: var(--cor-erro);
+}
+
+.senha-strength-bar.medium {
+  width: 66%;
+  background-color: var(--cor-aviso);
+}
+
+.senha-strength-bar.strong {
+  width: 100%;
+  background-color: var(--cor-sucesso);
+}
+
+
+
+/* Alternância de cores de fundo para seções */
+.section-white {
+  background-color: var(--cor-fundo);
+}
+
+.section-light-gray {
+  background-color: var(--cor-fundo-secundario);
+}
+
+/* Padronização dos cards de receita */
+.swiper-slide a,
+.categoria-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Garante que todos os cards tenham a mesma altura dentro do seu container */
+}
+
+.swiper-slide img,
+.categoria-card img {
+  width: 100%;
+  height: 180px; /* Altura fixa para as imagens dos cards */
+  object-fit: cover;
+}
+
+.swiper-slide h3,
+.categoria-card h3 {
+  flex-grow: 1; /* Permite que o título ocupe o espaço restante */
+}
+
+/* Linhas coloridas por categoria */
+.swiper-slide a,
+.categoria-card {
+  position: relative;
+  padding-bottom: 5px; /* Espaço para a linha */
+}
+
+.swiper-slide a::after,
+.categoria-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Altura da linha */
+  border-bottom-left-radius: var(--borda-radius);
+  border-bottom-right-radius: var(--borda-radius);
+}
+
+/* Cores das linhas por categoria */
+.swiper-slide a[href*="tipo=carne"]::after,
+.categoria-card[href*="tipo=carnes"]::after {
+  background-color: #E74C3C; /* Vermelho para Carne */
+}
+
+.swiper-slide a[href*="tipo=massa"]::after,
+.categoria-card[href*="tipo=massas"]::after {
+  background-color: #F1C40F; /* Amarelo para Massa */
+}
+
+.swiper-slide a[href*="tipo=sobremesa"]::after,
+.categoria-card[href*="tipo=doces"]::after {
+  background-color: #9B59B6; /* Roxo para Sobremesa/Doces */
+}
+
+.swiper-slide a[href*="tipo=saudavel"]::after,
+.categoria-card[href*="tipo=saladas"]::after {
+  background-color: #2ECC71; /* Verde para Saudável/Saladas */
+}
+
+.swiper-slide a[href*="tipo=bolo"]::after,
+.categoria-card[href*="tipo=bolos"]::after {
+  background-color: #E67E22; /* Laranja para Bolo (cor primária) */
+}
+
+.swiper-slide a[href*="tipo=frio"]::after,
+.categoria-card[href*="tipo=bebida"]::after {
+  background-color: #3498DB; /* Azul para Frio/Bebida */
+}
+
+.swiper-slide a[href*="tipo=italiana"]::after {
+  background-color: #1ABC9C; /* Verde-água para Italiana */
+}
+
+
+
+/* Estilos para a seção de categorias */
+.categorias {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+}
+
+.categorias h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-xl);
+  font-weight: 700;
+}
+
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoria-card {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.categoria-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-grande);
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.categoria-card-content {
+  padding: var(--espacamento-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.categoria-card h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+}
+
+.categoria-card p {
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Responsividade para categorias */
+@media (max-width: 768px) {
+  .categorias-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacamento-lg);
+  }
+  
+  .categoria-card img {
+    height: 160px;
+  }
+  
+  .categorias h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .categorias {
+    padding: var(--espacamento-xl) var(--espacamento-lg);
+  }
+  
+  .categorias-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-md);
+  }
+  
+  .categoria-card img {
+    height: 140px;
+  }
+  
+  .categorias h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Melhorias nos cards do swiper para padronização */
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-slide a {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 250px; /* Altura mínima para padronização */
+}
+
+.swiper-slide a:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-grande);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 160px; /* Altura fixa para padronização */
+  object-fit: cover;
+}
+
+.swiper-slide h3 {
+  padding: var(--espacamento-md);
+  font-family: var(--fonte-display);
+  font-size: 1.2rem;
+  color: var(--cor-secundaria);
+  text-align: center;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Ajustes para as seções com alternância de fundo */
+.section-white,
+.section-light-gray {
+  padding: var(--espacamento-xxl) 0;
+  transition: background-color var(--transicao-media);
+}
+
+/* Melhorias na seção intro */
+.intro {
+  text-align: center;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+}
+
+.intro h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-lg);
+  font-weight: 600;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Melhorias na seção destaques */
+.destaques {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+}
+
+.destaques h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-secundaria);
+  text-align: center;
+  margin-bottom: var(--espacamento-xl);
+  font-weight: 700;
+}
+
+/* Ajustes no swiper para melhor apresentação */
+.swiper {
+  padding: 0 var(--espacamento-md);
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  align-items: stretch; /* Garante que todos os slides tenham a mesma altura */
+}
+
+/* Melhorias nos botões de navegação do swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cor-secundaria);
+  background-color: var(--cor-fundo-card);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: var(--sombra-media);
+  transition: all var(--transicao-rapida);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsividade geral */
+@media (max-width: 768px) {
+  .section-white,
+  .section-light-gray {
+    padding: var(--espacamento-xl) 0;
+  }
+  
+  .intro h2,
+  .destaques h2 {
+    font-size: 2rem;
+  }
+  
+  .intro p {
+    font-size: 1rem;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro,
+  .destaques,
+  .categorias {
+    padding: var(--espacamento-lg) var(--espacamento-md);
+  }
+  
+  .intro h2,
+  .destaques h2 {
+    font-size: 1.8rem;
+  }
+  
+  .swiper {
+    padding: 0;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none; /* Oculta os botões em telas muito pequenas */
+  }
+}
+
+
+/* Estilos para o menu do usuário e botão sair */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+}
+
+.usuario-nome {
+  color: var(--cor-texto-claro);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.btn-sair {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-claro);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+}
+
+.btn-sair:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-sair:active {
+  transform: translateY(0);
+}
+
+/* Estilos para a página Minhas Receitas */
+.receitas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--espacamento-xl);
+  padding: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.receita-card {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.receita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-grande);
+}
+
+.receita-card-imagem {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.receita-card-content {
+  padding: var(--espacamento-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.receita-card-categoria {
+  display: inline-block;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--espacamento-sm);
+  align-self: flex-start;
+}
+
+.receita-card-titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.4rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.receita-card-ingredientes {
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: var(--espacamento-lg);
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.receita-card-actions {
+  display: flex;
+  gap: var(--espacamento-sm);
+  margin-top: auto;
+  padding-top: var(--espacamento-md);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.receita-card-btn {
+  flex: 1;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receita-card-btn.visualizar {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.visualizar:hover {
+  background-color: var(--cor-secundaria-escura);
+  transform: translateY(-1px);
+}
+
+.receita-card-btn.editar {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.editar:hover {
+  background-color: var(--cor-primaria-escura);
+  transform: translateY(-1px);
+}
+
+.receita-card-btn.excluir {
+  background-color: var(--cor-erro);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.excluir:hover {
+  background-color: #C0392B;
+  transform: translateY(-1px);
+}
+
+/* Linhas coloridas por categoria nos cards de receita */
+.receita-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-bottom-left-radius: var(--borda-radius-grande);
+  border-bottom-right-radius: var(--borda-radius-grande);
+}
+
+.receita-card[data-categoria="carne"]::after {
+  background-color: #E74C3C; /* Vermelho para Carne */
+}
+
+.receita-card[data-categoria="massa"]::after {
+  background-color: #F1C40F; /* Amarelo para Massa */
+}
+
+.receita-card[data-categoria="sobremesa"]::after {
+  background-color: #9B59B6; /* Roxo para Sobremesa */
+}
+
+.receita-card[data-categoria="saudavel"]::after,
+.receita-card[data-categoria="salada"]::after {
+  background-color: #2ECC71; /* Verde para Saudável/Saladas */
+}
+
+.receita-card[data-categoria="bolo"]::after {
+  background-color: #E67E22; /* Laranja para Bolo */
+}
+
+.receita-card[data-categoria="frio"]::after,
+.categoria-card[href*="tipo=bebida"]::after {
+  background-color: #3498DB; /* Azul para Frio/Bebida */
+}
+
+.receita-card[data-categoria="italiana"]::after {
+  background-color: #1ABC9C; /* Verde-água para Italiana */
+}
+
+/* Estilos para quando não há receitas */
+.sem-receitas {
+  text-align: center;
+  padding: var(--espacamento-xxl);
+  color: var(--cor-texto-secundario);
+}
+
+.sem-receitas-content h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+}
+
+.sem-receitas-content p {
+  font-size: 1.1rem;
+  margin-bottom: var(--espacamento-xl);
+  line-height: 1.5;
+}
+
+/* Responsividade para Minhas Receitas */
+@media (max-width: 768px) {
+  .receitas-grid {
+    grid-template-columns: 1fr;
+    padding: var(--espacamento-lg);
+    gap: var(--espacamento-lg);
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-md);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.2rem;
+  }
+  
+  .receita-card-actions {
+    flex-direction: column;
+  }
+  
+  .receita-card-btn {
+    padding: var(--espacamento-md);
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    gap: var(--espacamento-xs);
+  }
+  
+  .usuario-nome {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sair {
+    font-size: 0.8rem;
+    padding: var(--espacamento-xs) var(--espacamento-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .receitas-grid {
+    padding: var(--espacamento-md);
+    gap: var(--espacamento-md);
+  }
+  
+  .receita-card-imagem {
+    height: 160px;
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-sm);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.1rem;
+  }
+  
+  .receita-card-ingredientes {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Estilos para a página Visualizar Receita - Layout Otimizado */
+.visualizar-main {
+  padding: var(--espacamento-xl) 0;
+  background-color: var(--cor-fundo);
+}
+
+.receita-detalhes {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espacamento-xl);
+}
+
+.receita-header {
+  text-align: center;
+  margin-bottom: var(--espacamento-xxl);
+  padding: var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  border-radius: var(--borda-radius-grande);
+  color: var(--cor-texto-claro);
+}
+
+.receita-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--espacamento-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.receita-meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+}
+
+.receita-tipo {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+/* Layout otimizado: Imagem + Ingredientes lado a lado */
+.receita-content-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-xxl);
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-imagem-container {
+  position: relative;
+  border-radius: var(--borda-radius-grande);
+  overflow: hidden;
+  box-shadow: var(--sombra-grande);
+  height: fit-content;
+}
+
+.receita-imagem {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.receita-imagem:hover {
+  transform: scale(1.05);
+}
+
+.receita-ingredientes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Modo de preparo em largura total */
+.receita-content-bottom {
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-secao {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  border-left: 5px solid var(--cor-secundaria);
+  height: 100%;
+}
+
+.receita-secao h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-lg);
+  font-weight: 600;
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: var(--espacamento-sm);
+}
+
+.ingredientes-lista {
+  color: var(--cor-texto);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.ingredientes-lista ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ingredientes-lista li::before {
+  content: '•';
+  color: var(--cor-primaria);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.receita-actions {
+  text-align: center;
+  margin-top: var(--espacamento-xxl);
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+}
+
+.btn-voltar:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Responsividade para Visualizar */
+@media (min-width: 768px) {
+  .receita-content-top {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-xl);
+  }
+
+  .receita-imagem {
+    height: 300px;
+  }
+
+  .receita-titulo {
+    font-size: 2rem;
+  }
+
+  .receita-detalhes {
+    padding: 0 var(--espacamento-lg);
+  }
+}
+
+/* Estilos gerais para o container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espacamento-xl);
+}
+
+/* Estilos para o cabeçalho das páginas internas */
+.page-header {
+  text-align: center;
+  padding: var(--espacamento-xxl) var(--espacamento-xl) var(--espacamento-xl);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+}
+
+.page-header .titulo-pagina {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+  font-weight: 700;
+}
+
+.page-header .subtitulo-pagina {
+  font-size: 1.2rem;
+  color: var(--cor-texto-secundario);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+
+
+/* Estilos para a página de Login aprimorada */
+.login-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.login-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+}
+
+.login-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.login-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.login-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.login-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.login-form input[type="email"]:hover,
+.login-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.btn-login {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+  background: linear-gradient(135deg, var(--cor-primaria-clara) 0%, var(--cor-primaria) 100%);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.login-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-cadastro {
+  margin-bottom: var(--espacamento-md);
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-primaria-escura);
+  text-decoration: underline;
+}
+
+.link-esqueci-senha {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.link-esqueci {
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-esqueci:hover {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsividade para a página de login */
+@media (max-width: 768px) {
+  .login-page-main {
+    padding: var(--espacamento-lg);
+    min-height: calc(100vh - 120px);
+  }
+  
+  .login-card {
+    padding: var(--espacamento-xl);
+    max-width: 100%;
+  }
+  
+  .login-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .login-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: var(--espacamento-lg);
+    margin: var(--espacamento-md);
+  }
+  
+  .login-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+  }
+}
+
+
+/* Estilos para a página de Perfil do Usuário */
+.hero-perfil {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(34, 153, 84, 0.9) 100%),
+              url('img/vegetables-set-dark-background-top-view_1150-38200.avif') center/cover;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+  color: var(--cor-texto-claro);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-perfil::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(39, 174, 96, 0.1) 0%, rgba(34, 153, 84, 0.1) 100%);
+  animation: heroAnimation 20s ease-in-out infinite;
+}
+
+.hero-content-perfil {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--espacamento-md);
+  border: 4px solid var(--cor-texto-claro);
+  box-shadow: var(--sombra-media);
+  cursor: pointer;
+  transition: transform var(--transicao-media);
+}
+
+.avatar-container:hover {
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--cor-fundo-secundario);
+}
+
+.nome-usuario {
+  font-family: var(--fonte-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--espacamento-sm);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.email-usuario {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: var(--espacamento-md);
+}
+
+.perfil-badges {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-chef {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.badge-receitas {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-claro);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.badge-master {
+  background-color: #FFD700;
+  color: #333;
+}
+
+.badge-experiente {
+  background-color: #C0C0C0;
+  color: #333;
+}
+
+.badge-intermediario {
+  background-color: #CD7F32;
+  color: var(--cor-texto-claro);
+}
+
+.badge-iniciante {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.perfil-conteudo {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  background-color: var(--cor-fundo);
+}
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.perfil-info-card,
+.perfil-acoes-card,
+.perfil-stats-card,
+.perfil-receitas-recentes-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+  transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.perfil-info-card:hover,
+.perfil-acoes-card:hover,
+.perfil-stats-card:hover,
+.perfil-receitas-recentes-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--espacamento-lg);
+  padding-bottom: var(--espacamento-md);
+  border-bottom: 2px solid var(--cor-borda);
+}
+
+.card-titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-sm) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.info-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: var(--espacamento-lg);
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+}
+
+.info-value {
+  color: var(--cor-texto-primario);
+  font-weight: 500;
+}
+
+.btn-secundario {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+}
+
+.btn-secundario:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.acoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--espacamento-md);
+}
+
+.acao-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--espacamento-lg);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transicao-media);
+  border: 2px solid transparent;
+}
+
+.acao-item:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-3px);
+  border-color: var(--cor-primaria-escura);
+  box-shadow: var(--sombra-media);
+}
+
+.acao-icon {
+  font-size: 2rem;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.acao-titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.acao-descricao {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--espacamento-lg);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+}
+
+.stat-numero {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-family: var(--fonte-display);
+  line-height: 1;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+}
+
+.receitas-recentes-lista {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.receita-recente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-md);
+  transition: background-color var(--transicao-rapida);
+}
+
+.receita-recente-item:hover {
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-item:last-child {
+  margin-bottom: 0;
+}
+
+.receita-recente-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  flex: 1;
+}
+
+.receita-recente-img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--borda-radius-pequeno);
+  object-fit: cover;
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-detalhes {
+  flex: 1;
+}
+
+.receita-recente-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  margin: 0 0 var(--espacamento-xs) 0;
+}
+
+.receita-recente-categoria {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.btn-ver-receita {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color var(--transicao-rapida);
+}
+
+.btn-ver-receita:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.receita-recente-placeholder {
+  text-align: center;
+  padding: var(--espacamento-xl);
+  color: var(--cor-texto-secundario);
+}
+
+.receita-recente-placeholder span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--espacamento-md);
+  opacity: 0.5;
+}
+
+.btn-outline {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: transparent;
+  color: var(--cor-primaria);
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--borda-radius);
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transicao-media);
+  display: block;
+}
+
+.btn-outline:hover {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+/* Responsividade para a página de perfil */
+@media (max-width: 768px) {
+  .perfil-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .perfil-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-perfil {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-conteudo {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-info-card,
+  .perfil-acoes-card,
+  .perfil-stats-card,
+  .perfil-receitas-recentes-card {
+    padding: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .receita-recente-info {
+    gap: var(--espacamento-sm);
+  }
+  
+  .receita-recente-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+/* Estilos para a página de Cadastro (Registro) aprimorada */
+.registro-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.registro-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl); /* Mantido em 3rem (48px) de padding geral */
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.registro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+}
+
+.registro-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.registro-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.registro-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.registro-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.registro-form input[type="text"],
+.registro-form input[type="email"],
+.registro-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.registro-form input[type="text"]:focus,
+.registro-form input[type="email"]:focus,
+.registro-form input[type="password"]:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.registro-form input[type="text"]:hover,
+.registro-form input[type="email"]:hover,
+.registro-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.senha-requisitos {
+  margin-top: var(--espacamento-xs);
+}
+
+.senha-requisitos small {
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.checkbox-group {
+  margin-bottom: var(--espacamento-xl) !important;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacamento-sm);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--cor-texto-secundario);
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius-pequeno);
+  background-color: var(--cor-fundo);
+  position: relative;
+  transition: all var(--transicao-rapida);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--cor-texto-claro);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.link-termos {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-termos:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+.btn-registro {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-secundaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-registro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-registro:hover::before {
+  left: 100%;
+}
+
+.btn-registro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(39, 174, 96, 0.3);
+  background: linear-gradient(135deg, var(--cor-secundaria-clara) 0%, var(--cor-secundaria) 100%);
+}
+
+.btn-registro:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.btn-registro:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registro-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-login {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+/* Estados de validação para os campos */
+.registro-form input.valid {
+  border-color: var(--cor-sucesso);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+}
+
+.registro-form input.invalid {
+  border-color: var(--cor-erro);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+.error-message {
+  color: var(--cor-erro);
+  font-size: 0.85rem;
+  margin-top: var(--espacamento-xs);
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
+/* Responsividade para a página de cadastro */
+@media (max-width: 768px) {
+  .registro-page-main {
+    padding: var(--espacamento-lg);
+    min-height: calc(100vh - 120px);
+  }
+  
+  .registro-card {
+    padding: var(--espacamento-xl);
+    max-width: 100%;
+  }
+  
+  .registro-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .registro-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registro-card {
+    padding: var(--espacamento-lg);
+    margin: var(--espacamento-md);
+  }
+  
+  .registro-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .registro-form input[type="text"],
+  .registro-form input[type="email"],
+  .registro-form input[type="password"] {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+  }
+  
+  .checkbox-container {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animação para feedback de sucesso */
+.success-message {
+  background-color: var(--cor-sucesso);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  margin-bottom: var(--espacamento-lg);
+  text-align: center;
+  font-weight: 500;
+  display: none;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.success-message.show {
+  display: block;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Indicador de força da senha */
+.senha-strength {
+  margin-top: var(--espacamento-xs);
+  height: 4px;
+  background-color: var(--cor-borda);
+  border-radius: 2px;
+  overflow: hidden;
+  display: none;
+}
+
+.senha-strength.show {
+  display: block;
+}
+
+.senha-strength-bar {
+  height: 100%;
+  width: 0%;
+  transition: all var(--transicao-media);
+  border-radius: 2px;
+}
+
+.senha-strength-bar.weak {
+  width: 33%;
+  background-color: var(--cor-erro);
+}
+
+.senha-strength-bar.medium {
+  width: 66%;
+  background-color: var(--cor-aviso);
+}
+
+.senha-strength-bar.strong {
+  width: 100%;
+  background-color: var(--cor-sucesso);
+}
+
+
+
+/* Alternância de cores de fundo para seções */
+.section-white {
+  background-color: var(--cor-fundo);
+}
+
+.section-light-gray {
+  background-color: var(--cor-fundo-secundario);
+}
+
+/* Padronização dos cards de receita */
+.swiper-slide a,
+.categoria-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Garante que todos os cards tenham a mesma altura dentro do seu container */
+}
+
+.swiper-slide img,
+.categoria-card img {
+  width: 100%;
+  height: 180px; /* Altura fixa para as imagens dos cards */
+  object-fit: cover;
+}
+
+.swiper-slide h3,
+.categoria-card h3 {
+  flex-grow: 1; /* Permite que o título ocupe o espaço restante */
+}
+
+/* Linhas coloridas por categoria */
+.swiper-slide a,
+.categoria-card {
+  position: relative;
+  padding-bottom: 5px; /* Espaço para a linha */
+}
+
+.swiper-slide a::after,
+.categoria-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Altura da linha */
+  border-bottom-left-radius: var(--borda-radius);
+  border-bottom-right-radius: var(--borda-radius);
+}
+
+/* Cores das linhas por categoria */
+.swiper-slide a[href*="tipo=carne"]::after,
+.categoria-card[href*="tipo=carnes"]::after {
+  background-color: #E74C3C; /* Vermelho para Carne */
+}
+
+.swiper-slide a[href*="tipo=massa"]::after,
+.categoria-card[href*="tipo=massas"]::after {
+  background-color: #F1C40F; /* Amarelo para Massa */
+}
+
+.swiper-slide a[href*="tipo=sobremesa"]::after,
+.categoria-card[href*="tipo=doces"]::after {
+  background-color: #9B59B6; /* Roxo para Sobremesa/Doces */
+}
+
+.swiper-slide a[href*="tipo=saudavel"]::after,
+.categoria-card[href*="tipo=saladas"]::after {
+  background-color: #2ECC71; /* Verde para Saudável/Saladas */
+}
+
+.swiper-slide a[href*="tipo=bolo"]::after,
+.categoria-card[href*="tipo=bolos"]::after {
+  background-color: #E67E22; /* Laranja para Bolo (cor primária) */
+}
+
+.swiper-slide a[href*="tipo=frio"]::after,
+.categoria-card[href*="tipo=bebida"]::after {
+  background-color: #3498DB; /* Azul para Frio/Bebida */
+}
+
+.swiper-slide a[href*="tipo=italiana"]::after {
+  background-color: #1ABC9C; /* Verde-água para Italiana */
+}
+
+
+
+/* Estilos para a seção de categorias */
+.categorias {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+}
+
+.categorias h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-xl);
+  font-weight: 700;
+}
+
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoria-card {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.categoria-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-grande);
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.categoria-card-content {
+  padding: var(--espacamento-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.categoria-card h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+}
+
+.categoria-card p {
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Responsividade para categorias */
+@media (max-width: 768px) {
+  .categorias-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacamento-lg);
+  }
+  
+  .categoria-card img {
+    height: 160px;
+  }
+  
+  .categorias h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .categorias {
+    padding: var(--espacamento-xl) var(--espacamento-lg);
+  }
+  
+  .categorias-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-md);
+  }
+  
+  .categoria-card img {
+    height: 140px;
+  }
+  
+  .categorias h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Melhorias nos cards do swiper para padronização */
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-slide a {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 250px; /* Altura mínima para padronização */
+}
+
+.swiper-slide a:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-grande);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 160px; /* Altura fixa para padronização */
+  object-fit: cover;
+}
+
+.swiper-slide h3 {
+  padding: var(--espacamento-md);
+  font-family: var(--fonte-display);
+  font-size: 1.2rem;
+  color: var(--cor-secundaria);
+  text-align: center;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Ajustes para as seções com alternância de fundo */
+.section-white,
+.section-light-gray {
+  padding: var(--espacamento-xxl) 0;
+  transition: background-color var(--transicao-media);
+}
+
+/* Melhorias na seção intro */
+.intro {
+  text-align: center;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+}
+
+.intro h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-lg);
+  font-weight: 600;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Melhorias na seção destaques */
+.destaques {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+}
+
+.destaques h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-secundaria);
+  text-align: center;
+  margin-bottom: var(--espacamento-xl);
+  font-weight: 700;
+}
+
+/* Ajustes no swiper para melhor apresentação */
+.swiper {
+  padding: 0 var(--espacamento-md);
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  align-items: stretch; /* Garante que todos os slides tenham a mesma altura */
+}
+
+/* Melhorias nos botões de navegação do swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cor-secundaria);
+  background-color: var(--cor-fundo-card);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: var(--sombra-media);
+  transition: all var(--transicao-rapida);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsividade geral */
+@media (max-width: 768px) {
+  .section-white,
+  .section-light-gray {
+    padding: var(--espacamento-xl) 0;
+  }
+  
+  .intro h2,
+  .destaques h2 {
+    font-size: 2rem;
+  }
+  
+  .intro p {
+    font-size: 1rem;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro,
+  .destaques,
+  .categorias {
+    padding: var(--espacamento-lg) var(--espacamento-md);
+  }
+  
+  .intro h2,
+  .destaques h2 {
+    font-size: 1.8rem;
+  }
+  
+  .swiper {
+    padding: 0;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none; /* Oculta os botões em telas muito pequenas */
+  }
+}
+
+
+/* Estilos para o menu do usuário e botão sair */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+}
+
+.usuario-nome {
+  color: var(--cor-texto-claro);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.btn-sair {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-claro);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+}
+
+.btn-sair:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-sair:active {
+  transform: translateY(0);
+}
+
+/* Estilos para a página Minhas Receitas */
+.receitas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--espacamento-xl);
+  padding: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.receita-card {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.receita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-grande);
+}
+
+.receita-card-imagem {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.receita-card-content {
+  padding: var(--espacamento-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.receita-card-categoria {
+  display: inline-block;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--espacamento-sm);
+  align-self: flex-start;
+}
+
+.receita-card-titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.4rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.receita-card-ingredientes {
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: var(--espacamento-lg);
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.receita-card-actions {
+  display: flex;
+  gap: var(--espacamento-sm);
+  margin-top: auto;
+  padding-top: var(--espacamento-md);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.receita-card-btn {
+  flex: 1;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receita-card-btn.visualizar {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.visualizar:hover {
+  background-color: var(--cor-secundaria-escura);
+  transform: translateY(-1px);
+}
+
+.receita-card-btn.editar {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.editar:hover {
+  background-color: var(--cor-primaria-escura);
+  transform: translateY(-1px);
+}
+
+.receita-card-btn.excluir {
+  background-color: var(--cor-erro);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.excluir:hover {
+  background-color: #C0392B;
+  transform: translateY(-1px);
+}
+
+/* Linhas coloridas por categoria nos cards de receita */
+.receita-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-bottom-left-radius: var(--borda-radius-grande);
+  border-bottom-right-radius: var(--borda-radius-grande);
+}
+
+.receita-card[data-categoria="carne"]::after {
+  background-color: #E74C3C; /* Vermelho para Carne */
+}
+
+.receita-card[data-categoria="massa"]::after {
+  background-color: #F1C40F; /* Amarelo para Massa */
+}
+
+.receita-card[data-categoria="sobremesa"]::after {
+  background-color: #9B59B6; /* Roxo para Sobremesa */
+}
+
+.receita-card[data-categoria="saudavel"]::after,
+.receita-card[data-categoria="salada"]::after {
+  background-color: #2ECC71; /* Verde para Saudável/Saladas */
+}
+
+.receita-card[data-categoria="bolo"]::after {
+  background-color: #E67E22; /* Laranja para Bolo */
+}
+
+.receita-card[data-categoria="frio"]::after,
+.receita-card[data-categoria="bebida"]::after {
+  background-color: #3498DB; /* Azul para Frio/Bebida */
+}
+
+.receita-card[data-categoria="italiana"]::after {
+  background-color: #1ABC9C; /* Verde-água para Italiana */
+}
+
+/* Estilos para quando não há receitas */
+.sem-receitas {
+  text-align: center;
+  padding: var(--espacamento-xxl);
+  color: var(--cor-texto-secundario);
+}
+
+.sem-receitas-content h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+}
+
+.sem-receitas-content p {
+  font-size: 1.1rem;
+  margin-bottom: var(--espacamento-xl);
+  line-height: 1.5;
+}
+
+/* Responsividade para Minhas Receitas */
+@media (max-width: 768px) {
+  .receitas-grid {
+    grid-template-columns: 1fr;
+    padding: var(--espacamento-lg);
+    gap: var(--espacamento-lg);
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-md);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.2rem;
+  }
+  
+  .receita-card-actions {
+    flex-direction: column;
+  }
+  
+  .receita-card-btn {
+    padding: var(--espacamento-md);
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    gap: var(--espacamento-xs);
+  }
+  
+  .usuario-nome {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sair {
+    font-size: 0.8rem;
+    padding: var(--espacamento-xs) var(--espacamento-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .receitas-grid {
+    padding: var(--espacamento-md);
+    gap: var(--espacamento-md);
+  }
+  
+  .receita-card-imagem {
+    height: 160px;
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-sm);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.1rem;
+  }
+  
+  .receita-card-ingredientes {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Estilos para a página Visualizar Receita - Layout Otimizado */
+.visualizar-main {
+  padding: var(--espacamento-xl) 0;
+  background-color: var(--cor-fundo);
+}
+
+.receita-detalhes {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espacamento-xl);
+}
+
+.receita-header {
+  text-align: center;
+  margin-bottom: var(--espacamento-xxl);
+  padding: var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  border-radius: var(--borda-radius-grande);
+  color: var(--cor-texto-claro);
+}
+
+.receita-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--espacamento-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.receita-meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+}
+
+.receita-tipo {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+/* Layout otimizado: Imagem + Ingredientes lado a lado */
+.receita-content-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-xxl);
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-imagem-container {
+  position: relative;
+  border-radius: var(--borda-radius-grande);
+  overflow: hidden;
+  box-shadow: var(--sombra-grande);
+  height: fit-content;
+}
+
+.receita-imagem {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.receita-imagem:hover {
+  transform: scale(1.05);
+}
+
+.receita-ingredientes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Modo de preparo em largura total */
+.receita-content-bottom {
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-secao {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  border-left: 5px solid var(--cor-secundaria);
+  height: 100%;
+}
+
+.receita-secao h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-lg);
+  font-weight: 600;
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: var(--espacamento-sm);
+}
+
+.ingredientes-lista {
+  color: var(--cor-texto);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.ingredientes-lista ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ingredientes-lista li::before {
+  content: '•';
+  color: var(--cor-primaria);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.receita-actions {
+  text-align: center;
+  margin-top: var(--espacamento-xxl);
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+}
+
+.btn-voltar:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Responsividade para Visualizar */
+@media (min-width: 768px) {
+  .receita-content-top {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-xl);
+  }
+
+  .receita-imagem {
+    height: 300px;
+  }
+
+  .receita-titulo {
+    font-size: 2rem;
+  }
+
+  .receita-detalhes {
+    padding: 0 var(--espacamento-lg);
+  }
+}
+
+/* Estilos gerais para o container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espacamento-xl);
+}
+
+/* Estilos para o cabeçalho das páginas internas */
+.page-header {
+  text-align: center;
+  padding: var(--espacamento-xxl) var(--espacamento-xl) var(--espacamento-xl);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+}
+
+.page-header .titulo-pagina {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+  font-weight: 700;
+}
+
+.page-header .subtitulo-pagina {
+  font-size: 1.2rem;
+  color: var(--cor-texto-secundario);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+
+
+/* Estilos para a página de Login aprimorada */
+.login-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.login-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+}
+
+.login-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.login-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.login-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.login-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.login-form input[type="email"]:hover,
+.login-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.btn-login {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+  background: linear-gradient(135deg, var(--cor-primaria-clara) 0%, var(--cor-primaria) 100%);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.login-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-cadastro {
+  margin-bottom: var(--espacamento-md);
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-primaria-escura);
+  text-decoration: underline;
+}
+
+.link-esqueci-senha {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.link-esqueci {
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-esqueci:hover {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsividade para a página de login */
+@media (max-width: 768px) {
+  .login-page-main {
+    padding: var(--espacamento-lg);
+    min-height: calc(100vh - 120px);
+  }
+  
+  .login-card {
+    padding: var(--espacamento-xl);
+    max-width: 100%;
+  }
+  
+  .login-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .login-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: var(--espacamento-lg);
+    margin: var(--espacamento-md);
+  }
+  
+  .login-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+  }
+}
+
+
+/* Estilos para a página de Perfil do Usuário */
+.hero-perfil {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(34, 153, 84, 0.9) 100%),
+              url('img/vegetables-set-dark-background-top-view_1150-38200.avif') center/cover;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+  color: var(--cor-texto-claro);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-perfil::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(39, 174, 96, 0.1) 0%, rgba(34, 153, 84, 0.1) 100%);
+  animation: heroAnimation 20s ease-in-out infinite;
+}
+
+.hero-content-perfil {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--espacamento-md);
+  border: 4px solid var(--cor-texto-claro);
+  box-shadow: var(--sombra-media);
+  cursor: pointer;
+  transition: transform var(--transicao-media);
+}
+
+.avatar-container:hover {
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--cor-fundo-secundario);
+}
+
+.nome-usuario {
+  font-family: var(--fonte-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--espacamento-sm);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.email-usuario {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: var(--espacamento-md);
+}
+
+.perfil-badges {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-chef {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.badge-receitas {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-claro);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.badge-master {
+  background-color: #FFD700;
+  color: #333;
+}
+
+.badge-experiente {
+  background-color: #C0C0C0;
+  color: #333;
+}
+
+.badge-intermediario {
+  background-color: #CD7F32;
+  color: var(--cor-texto-claro);
+}
+
+.badge-iniciante {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.perfil-conteudo {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  background-color: var(--cor-fundo);
+}
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.perfil-info-card,
+.perfil-acoes-card,
+.perfil-stats-card,
+.perfil-receitas-recentes-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+  transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.perfil-info-card:hover,
+.perfil-acoes-card:hover,
+.perfil-stats-card:hover,
+.perfil-receitas-recentes-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--espacamento-lg);
+  padding-bottom: var(--espacamento-md);
+  border-bottom: 2px solid var(--cor-borda);
+}
+
+.card-titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-sm) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.info-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: var(--espacamento-lg);
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+}
+
+.info-value {
+  color: var(--cor-texto-primario);
+  font-weight: 500;
+}
+
+.btn-secundario {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+}
+
+.btn-secundario:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.acoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--espacamento-md);
+}
+
+.acao-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--espacamento-lg);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transicao-media);
+  border: 2px solid transparent;
+}
+
+.acao-item:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-3px);
+  border-color: var(--cor-primaria-escura);
+  box-shadow: var(--sombra-media);
+}
+
+.acao-icon {
+  font-size: 2rem;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.acao-titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.acao-descricao {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--espacamento-lg);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+}
+
+.stat-numero {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-family: var(--fonte-display);
+  line-height: 1;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+}
+
+.receitas-recentes-lista {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.receita-recente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-md);
+  transition: background-color var(--transicao-rapida);
+}
+
+.receita-recente-item:hover {
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-item:last-child {
+  margin-bottom: 0;
+}
+
+.receita-recente-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  flex: 1;
+}
+
+.receita-recente-img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--borda-radius-pequeno);
+  object-fit: cover;
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-detalhes {
+  flex: 1;
+}
+
+.receita-recente-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  margin: 0 0 var(--espacamento-xs) 0;
+}
+
+.receita-recente-categoria {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.btn-ver-receita {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color var(--transicao-rapida);
+}
+
+.btn-ver-receita:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.receita-recente-placeholder {
+  text-align: center;
+  padding: var(--espacamento-xl);
+  color: var(--cor-texto-secundario);
+}
+
+.receita-recente-placeholder span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--espacamento-md);
+  opacity: 0.5;
+}
+
+.btn-outline {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: transparent;
+  color: var(--cor-primaria);
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--borda-radius);
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transicao-media);
+  display: block;
+}
+
+.btn-outline:hover {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+/* Responsividade para a página de perfil */
+@media (max-width: 768px) {
+  .perfil-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .perfil-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-perfil {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-conteudo {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-info-card,
+  .perfil-acoes-card,
+  .perfil-stats-card,
+  .perfil-receitas-recentes-card {
+    padding: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .receita-recente-info {
+    gap: var(--espacamento-sm);
+  }
+  
+  .receita-recente-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+/* Estilos para a página de Cadastro (Registro) aprimorada */
+.registro-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.registro-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl); /* Mantido em 3rem (48px) de padding geral */
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.registro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+}
+
+.registro-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.registro-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.registro-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.registro-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.registro-form input[type="text"],
+.registro-form input[type="email"],
+.registro-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.registro-form input[type="text"]:focus,
+.registro-form input[type="email"]:focus,
+.registro-form input[type="password"]:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.registro-form input[type="text"]:hover,
+.registro-form input[type="email"]:hover,
+.registro-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.senha-requisitos {
+  margin-top: var(--espacamento-xs);
+}
+
+.senha-requisitos small {
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.checkbox-group {
+  margin-bottom: var(--espacamento-xl) !important;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacamento-sm);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--cor-texto-secundario);
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius-pequeno);
+  background-color: var(--cor-fundo);
+  position: relative;
+  transition: all var(--transicao-rapida);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--cor-texto-claro);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.link-termos {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-termos:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+.btn-registro {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-secundaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-registro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-registro:hover::before {
+  left: 100%;
+}
+
+.btn-registro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(39, 174, 96, 0.3);
+  background: linear-gradient(135deg, var(--cor-secundaria-clara) 0%, var(--cor-secundaria) 100%);
+}
+
+.btn-registro:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.btn-registro:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registro-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-login {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+/* Estados de validação para os campos */
+.registro-form input.valid {
+  border-color: var(--cor-sucesso);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+}
+
+.registro-form input.invalid {
+  border-color: var(--cor-erro);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+}
+
+.error-message {
+  color: var(--cor-erro);
+  font-size: 0.85rem;
+  margin-top: var(--espacamento-xs);
+  display: none;
+}
+
+.error-message.show {
+  display: block;
+}
+
+/* Responsividade para a página de cadastro */
+@media (max-width: 768px) {
+  .registro-page-main {
+    padding: var(--espacamento-lg);
+    min-height: calc(100vh - 120px);
+  }
+  
+  .registro-card {
+    padding: var(--espacamento-xl);
+    max-width: 100%;
+  }
+  
+  .registro-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .registro-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .registro-card {
+    padding: var(--espacamento-lg);
+    margin: var(--espacamento-md);
+  }
+  
+  .registro-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .registro-form input[type="text"],
+  .registro-form input[type="email"],
+  .registro-form input[type="password"] {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+  }
+  
+  .checkbox-container {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animação para feedback de sucesso */
+.success-message {
+  background-color: var(--cor-sucesso);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  margin-bottom: var(--espacamento-lg);
+  text-align: center;
+  font-weight: 500;
+  display: none;
+  animation: slideInDown 0.5s ease-out;
+}
+
+.success-message.show {
+  display: block;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Indicador de força da senha */
+.senha-strength {
+  margin-top: var(--espacamento-xs);
+  height: 4px;
+  background-color: var(--cor-borda);
+  border-radius: 2px;
+  overflow: hidden;
+  display: none;
+}
+
+.senha-strength.show {
+  display: block;
+}
+
+.senha-strength-bar {
+  height: 100%;
+  width: 0%;
+  transition: all var(--transicao-media);
+  border-radius: 2px;
+}
+
+.senha-strength-bar.weak {
+  width: 33%;
+  background-color: var(--cor-erro);
+}
+
+.senha-strength-bar.medium {
+  width: 66%;
+  background-color: var(--cor-aviso);
+}
+
+.senha-strength-bar.strong {
+  width: 100%;
+  background-color: var(--cor-sucesso);
+}
+
+
+
+/* Alternância de cores de fundo para seções */
+.section-white {
+  background-color: var(--cor-fundo);
+}
+
+.section-light-gray {
+  background-color: var(--cor-fundo-secundario);
+}
+
+/* Padronização dos cards de receita */
+.swiper-slide a,
+.categoria-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Garante que todos os cards tenham a mesma altura dentro do seu container */
+}
+
+.swiper-slide img,
+.categoria-card img {
+  width: 100%;
+  height: 180px; /* Altura fixa para as imagens dos cards */
+  object-fit: cover;
+}
+
+.swiper-slide h3,
+.categoria-card h3 {
+  flex-grow: 1; /* Permite que o título ocupe o espaço restante */
+}
+
+/* Linhas coloridas por categoria */
+.swiper-slide a,
+.categoria-card {
+  position: relative;
+  padding-bottom: 5px; /* Espaço para a linha */
+}
+
+.swiper-slide a::after,
+.categoria-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Altura da linha */
+  border-bottom-left-radius: var(--borda-radius);
+  border-bottom-right-radius: var(--borda-radius);
+}
+
+/* Cores das linhas por categoria */
+.swiper-slide a[href*="tipo=carne"]::after,
+.categoria-card[href*="tipo=carnes"]::after {
+  background-color: #E74C3C; /* Vermelho para Carne */
+}
+
+.swiper-slide a[href*="tipo=massa"]::after,
+.categoria-card[href*="tipo=massas"]::after {
+  background-color: #F1C40F; /* Amarelo para Massa */
+}
+
+.swiper-slide a[href*="tipo=sobremesa"]::after,
+.categoria-card[href*="tipo=doces"]::after {
+  background-color: #9B59B6; /* Roxo para Sobremesa/Doces */
+}
+
+.swiper-slide a[href*="tipo=saudavel"]::after,
+.categoria-card[href*="tipo=saladas"]::after {
+  background-color: #2ECC71; /* Verde para Saudável/Saladas */
+}
+
+.swiper-slide a[href*="tipo=bolo"]::after,
+.categoria-card[href*="tipo=bolos"]::after {
+  background-color: #E67E22; /* Laranja para Bolo (cor primária) */
+}
+
+.swiper-slide a[href*="tipo=frio"]::after,
+.categoria-card[href*="tipo=bebida"]::after {
+  background-color: #3498DB; /* Azul para Frio/Bebida */
+}
+
+.swiper-slide a[href*="tipo=italiana"]::after {
+  background-color: #1ABC9C; /* Verde-água para Italiana */
+}
+
+
+
+/* Estilos para a seção de categorias */
+.categorias {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+}
+
+.categorias h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-xl);
+  font-weight: 700;
+}
+
+.categorias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categoria-card {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.categoria-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--sombra-grande);
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.categoria-card-content {
+  padding: var(--espacamento-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.categoria-card h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+}
+
+.categoria-card p {
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+/* Responsividade para categorias */
+@media (max-width: 768px) {
+  .categorias-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--espacamento-lg);
+  }
+  
+  .categoria-card img {
+    height: 160px;
+  }
+  
+  .categorias h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .categorias {
+    padding: var(--espacamento-xl) var(--espacamento-lg);
+  }
+  
+  .categorias-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-md);
+  }
+  
+  .categoria-card img {
+    height: 140px;
+  }
+  
+  .categorias h2 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Melhorias nos cards do swiper para padronização */
+.swiper-slide {
+  height: auto;
+}
+
+.swiper-slide a {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 250px; /* Altura mínima para padronização */
+}
+
+.swiper-slide a:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-grande);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 160px; /* Altura fixa para padronização */
+  object-fit: cover;
+}
+
+.swiper-slide h3 {
+  padding: var(--espacamento-md);
+  font-family: var(--fonte-display);
+  font-size: 1.2rem;
+  color: var(--cor-secundaria);
+  text-align: center;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* Ajustes para as seções com alternância de fundo */
+.section-white,
+.section-light-gray {
+  padding: var(--espacamento-xxl) 0;
+  transition: background-color var(--transicao-media);
+}
+
+/* Melhorias na seção intro */
+.intro {
+  text-align: center;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+}
+
+.intro h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-lg);
+  font-weight: 600;
+}
+
+.intro p {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Melhorias na seção destaques */
+.destaques {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+}
+
+.destaques h2 {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  color: var(--cor-secundaria);
+  text-align: center;
+  margin-bottom: var(--espacamento-xl);
+  font-weight: 700;
+}
+
+/* Ajustes no swiper para melhor apresentação */
+.swiper {
+  padding: 0 var(--espacamento-md);
+  overflow: visible;
+}
+
+.swiper-wrapper {
+  align-items: stretch; /* Garante que todos os slides tenham a mesma altura */
+}
+
+/* Melhorias nos botões de navegação do swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--cor-secundaria);
+  background-color: var(--cor-fundo-card);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: var(--sombra-media);
+  transition: all var(--transicao-rapida);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Responsividade geral */
+@media (max-width: 768px) {
+  .section-white,
+  .section-light-gray {
+    padding: var(--espacamento-xl) 0;
+  }
+  
+  .intro h2,
+  .destaques h2 {
+    font-size: 2rem;
+  }
+  
+  .intro p {
+    font-size: 1rem;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro,
+  .destaques,
+  .categorias {
+    padding: var(--espacamento-lg) var(--espacamento-md);
+  }
+  
+  .intro h2,
+  .destaques h2 {
+    font-size: 1.8rem;
+  }
+  
+  .swiper {
+    padding: 0;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none; /* Oculta os botões em telas muito pequenas */
+  }
+}
+
+
+/* Estilos para o menu do usuário e botão sair */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+}
+
+.usuario-nome {
+  color: var(--cor-texto-claro);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.btn-sair {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-claro);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-xs);
+}
+
+.btn-sair:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-sair:active {
+  transform: translateY(0);
+}
+
+/* Estilos para a página Minhas Receitas */
+.receitas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: var(--espacamento-xl);
+  padding: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.receita-card {
+  background-color: var(--cor-fundo-card);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  overflow: hidden;
+  transition: all var(--transicao-media);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.receita-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra-grande);
+}
+
+.receita-card-imagem {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.receita-card-content {
+  padding: var(--espacamento-lg);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.receita-card-categoria {
+  display: inline-block;
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--espacamento-sm);
+  align-self: flex-start;
+}
+
+.receita-card-titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.4rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.receita-card-ingredientes {
+  color: var(--cor-texto-secundario);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: var(--espacamento-lg);
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.receita-card-actions {
+  display: flex;
+  gap: var(--espacamento-sm);
+  margin-top: auto;
+  padding-top: var(--espacamento-md);
+  border-top: 1px solid var(--cor-borda);
+}
+
+.receita-card-btn {
+  flex: 1;
+  padding: var(--espacamento-sm) var(--espacamento-md);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transicao-rapida);
+  text-decoration: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.receita-card-btn.visualizar {
+  background-color: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.visualizar:hover {
+  background-color: var(--cor-secundaria-escura);
+  transform: translateY(-1px);
+}
+
+.receita-card-btn.editar {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.editar:hover {
+  background-color: var(--cor-primaria-escura);
+  transform: translateY(-1px);
+}
+
+.receita-card-btn.excluir {
+  background-color: var(--cor-erro);
+  color: var(--cor-texto-claro);
+}
+
+.receita-card-btn.excluir:hover {
+  background-color: #C0392B;
+  transform: translateY(-1px);
+}
+
+/* Linhas coloridas por categoria nos cards de receita */
+.receita-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  border-bottom-left-radius: var(--borda-radius-grande);
+  border-bottom-right-radius: var(--borda-radius-grande);
+}
+
+.receita-card[data-categoria="carne"]::after {
+  background-color: #E74C3C; /* Vermelho para Carne */
+}
+
+.receita-card[data-categoria="massa"]::after {
+  background-color: #F1C40F; /* Amarelo para Massa */
+}
+
+.receita-card[data-categoria="sobremesa"]::after {
+  background-color: #9B59B6; /* Roxo para Sobremesa */
+}
+
+.receita-card[data-categoria="saudavel"]::after,
+.receita-card[data-categoria="salada"]::after {
+  background-color: #2ECC71; /* Verde para Saudável/Saladas */
+}
+
+.receita-card[data-categoria="bolo"]::after {
+  background-color: #E67E22; /* Laranja para Bolo */
+}
+
+.receita-card[data-categoria="frio"]::after,
+.receita-card[data-categoria="bebida"]::after {
+  background-color: #3498DB; /* Azul para Frio/Bebida */
+}
+
+.receita-card[data-categoria="italiana"]::after {
+  background-color: #1ABC9C; /* Verde-água para Italiana */
+}
+
+/* Estilos para quando não há receitas */
+.sem-receitas {
+  text-align: center;
+  padding: var(--espacamento-xxl);
+  color: var(--cor-texto-secundario);
+}
+
+.sem-receitas-content h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+}
+
+.sem-receitas-content p {
+  font-size: 1.1rem;
+  margin-bottom: var(--espacamento-xl);
+  line-height: 1.5;
+}
+
+/* Responsividade para Minhas Receitas */
+@media (max-width: 768px) {
+  .receitas-grid {
+    grid-template-columns: 1fr;
+    padding: var(--espacamento-lg);
+    gap: var(--espacamento-lg);
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-md);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.2rem;
+  }
+  
+  .receita-card-actions {
+    flex-direction: column;
+  }
+  
+  .receita-card-btn {
+    padding: var(--espacamento-md);
+  }
+  
+  .user-menu {
+    flex-direction: column;
+    gap: var(--espacamento-xs);
+  }
+  
+  .usuario-nome {
+    font-size: 0.9rem;
+  }
+  
+  .btn-sair {
+    font-size: 0.8rem;
+    padding: var(--espacamento-xs) var(--espacamento-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .receitas-grid {
+    padding: var(--espacamento-md);
+    gap: var(--espacamento-md);
+  }
+  
+  .receita-card-imagem {
+    height: 160px;
+  }
+  
+  .receita-card-content {
+    padding: var(--espacamento-sm);
+  }
+  
+  .receita-card-titulo {
+    font-size: 1.1rem;
+  }
+  
+  .receita-card-ingredientes {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Estilos para a página Visualizar Receita - Layout Otimizado */
+.visualizar-main {
+  padding: var(--espacamento-xl) 0;
+  background-color: var(--cor-fundo);
+}
+
+.receita-detalhes {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espacamento-xl);
+}
+
+.receita-header {
+  text-align: center;
+  margin-bottom: var(--espacamento-xxl);
+  padding: var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+  border-radius: var(--borda-radius-grande);
+  color: var(--cor-texto-claro);
+}
+
+.receita-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: var(--espacamento-md);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.receita-meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+}
+
+.receita-tipo {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+/* Layout otimizado: Imagem + Ingredientes lado a lado */
+.receita-content-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacamento-xxl);
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-imagem-container {
+  position: relative;
+  border-radius: var(--borda-radius-grande);
+  overflow: hidden;
+  box-shadow: var(--sombra-grande);
+  height: fit-content;
+}
+
+.receita-imagem {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform var(--transicao-media);
+}
+
+.receita-imagem:hover {
+  transform: scale(1.05);
+}
+
+.receita-ingredientes {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Modo de preparo em largura total */
+.receita-content-bottom {
+  margin-bottom: var(--espacamento-xxl);
+}
+
+.receita-secao {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-media);
+  border-left: 5px solid var(--cor-secundaria);
+  height: 100%;
+}
+
+.receita-secao h3 {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-lg);
+  font-weight: 600;
+  border-bottom: 2px solid var(--cor-borda);
+  padding-bottom: var(--espacamento-sm);
+}
+
+.ingredientes-lista {
+  color: var(--cor-texto);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.ingredientes-lista ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.ingredientes-lista li::before {
+  content: '•';
+  color: var(--cor-primaria);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.receita-actions {
+  text-align: center;
+  margin-top: var(--espacamento-xxl);
+}
+
+.btn-voltar {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacamento-sm);
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+}
+
+.btn-voltar:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+}
+
+/* Responsividade para Visualizar */
+@media (min-width: 768px) {
+  .receita-content-top {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-xl);
+  }
+
+  .receita-imagem {
+    height: 300px;
+  }
+
+  .receita-titulo {
+    font-size: 2rem;
+  }
+
+  .receita-detalhes {
+    padding: 0 var(--espacamento-lg);
+  }
+}
+
+/* Estilos gerais para o container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--espacamento-xl);
+}
+
+/* Estilos para o cabeçalho das páginas internas */
+.page-header {
+  text-align: center;
+  padding: var(--espacamento-xxl) var(--espacamento-xl) var(--espacamento-xl);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+}
+
+.page-header .titulo-pagina {
+  font-family: var(--fonte-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-md);
+  font-weight: 700;
+}
+
+.page-header .subtitulo-pagina {
+  font-size: 1.2rem;
+  color: var(--cor-texto-secundario);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+
+
+/* Estilos para a página de Login aprimorada */
+.login-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.login-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl);
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+}
+
+.login-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-primaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.login-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.login-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.login-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.login-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.login-form input[type="email"]:hover,
+.login-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.btn-login {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-primaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-login::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-login:hover::before {
+  left: 100%;
+}
+
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-hover);
+  background: linear-gradient(135deg, var(--cor-primaria-clara) 0%, var(--cor-primaria) 100%);
+}
+
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.login-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-cadastro {
+  margin-bottom: var(--espacamento-md);
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-primaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-primaria-escura);
+  text-decoration: underline;
+}
+
+.link-esqueci-senha {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.link-esqueci {
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-esqueci:hover {
+  color: var(--cor-primaria);
+  text-decoration: underline;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsividade para a página de login */
+@media (max-width: 768px) {
+  .login-page-main {
+    padding: var(--espacamento-lg);
+    min-height: calc(100vh - 120px);
+  }
+  
+  .login-card {
+    padding: var(--espacamento-xl);
+    max-width: 100%;
+  }
+  
+  .login-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .login-subtitulo {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    padding: var(--espacamento-lg);
+    margin: var(--espacamento-md);
+  }
+  
+  .login-titulo {
+    font-size: 1.6rem;
+  }
+  
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    padding: var(--espacamento-sm) var(--espacamento-md);
+  }
+}
+
+
+/* Estilos para a página de Perfil do Usuário */
+.hero-perfil {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.9) 0%, rgba(34, 153, 84, 0.9) 100%),
+              url('img/vegetables-set-dark-background-top-view_1150-38200.avif') center/cover;
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  text-align: center;
+  color: var(--cor-texto-claro);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-perfil::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(39, 174, 96, 0.1) 0%, rgba(34, 153, 84, 0.1) 100%);
+  animation: heroAnimation 20s ease-in-out infinite;
+}
+
+.hero-content-perfil {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto var(--espacamento-md);
+  border: 4px solid var(--cor-texto-claro);
+  box-shadow: var(--sombra-media);
+  cursor: pointer;
+  transition: transform var(--transicao-media);
+}
+
+.avatar-container:hover {
+  transform: scale(1.05);
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--cor-fundo-secundario);
+}
+
+.nome-usuario {
+  font-family: var(--fonte-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: var(--espacamento-sm);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.email-usuario {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: var(--espacamento-md);
+}
+
+.perfil-badges {
+  display: flex;
+  justify-content: center;
+  gap: var(--espacamento-md);
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-chef {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.badge-receitas {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--cor-texto-claro);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.badge-master {
+  background-color: #FFD700;
+  color: #333;
+}
+
+.badge-experiente {
+  background-color: #C0C0C0;
+  color: #333;
+}
+
+.badge-intermediario {
+  background-color: #CD7F32;
+  color: var(--cor-texto-claro);
+}
+
+.badge-iniciante {
+  background-color: var(--cor-destaque);
+  color: var(--cor-texto-claro);
+}
+
+.perfil-conteudo {
+  padding: var(--espacamento-xxl) var(--espacamento-xl);
+  background-color: var(--cor-fundo);
+}
+
+.perfil-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: var(--espacamento-xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.perfil-info-card,
+.perfil-acoes-card,
+.perfil-stats-card,
+.perfil-receitas-recentes-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xl);
+  border-radius: var(--borda-radius);
+  box-shadow: var(--sombra-pequena);
+  transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.perfil-info-card:hover,
+.perfil-acoes-card:hover,
+.perfil-stats-card:hover,
+.perfil-receitas-recentes-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--espacamento-lg);
+  padding-bottom: var(--espacamento-md);
+  border-bottom: 2px solid var(--cor-borda);
+}
+
+.card-titulo {
+  font-family: var(--fonte-display);
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin: 0;
+  font-weight: 600;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-sm) 0;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.info-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: var(--espacamento-lg);
+}
+
+.info-label {
+  font-weight: 600;
+  color: var(--cor-texto-secundario);
+}
+
+.info-value {
+  color: var(--cor-texto-primario);
+  font-weight: 500;
+}
+
+.btn-secundario {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: var(--cor-secundaria);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espacamento-sm);
+}
+
+.btn-secundario:hover {
+  background: var(--cor-secundaria-escura);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+.acoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--espacamento-md);
+}
+
+.acao-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--espacamento-lg);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transicao-media);
+  border: 2px solid transparent;
+}
+
+.acao-item:hover {
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-3px);
+  border-color: var(--cor-primaria-escura);
+  box-shadow: var(--sombra-media);
+}
+
+.acao-icon {
+  font-size: 2rem;
+  margin-bottom: var(--espacamento-sm);
+}
+
+.acao-titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.acao-descricao {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--espacamento-lg);
+}
+
+.stat-item {
+  text-align: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+}
+
+.stat-numero {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  font-family: var(--fonte-display);
+  line-height: 1;
+  margin-bottom: var(--espacamento-xs);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+}
+
+.receitas-recentes-lista {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.receita-recente-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--espacamento-md);
+  border-radius: var(--borda-radius);
+  background-color: var(--cor-fundo-secundario);
+  margin-bottom: var(--espacamento-md);
+  transition: background-color var(--transicao-rapida);
+}
+
+.receita-recente-item:hover {
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-item:last-child {
+  margin-bottom: 0;
+}
+
+.receita-recente-info {
+  display: flex;
+  align-items: center;
+  gap: var(--espacamento-md);
+  flex: 1;
+}
+
+.receita-recente-img {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--borda-radius-pequeno);
+  object-fit: cover;
+  background-color: var(--cor-borda);
+}
+
+.receita-recente-detalhes {
+  flex: 1;
+}
+
+.receita-recente-titulo {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  margin: 0 0 var(--espacamento-xs) 0;
+}
+
+.receita-recente-categoria {
+  font-size: 0.85rem;
+  color: var(--cor-texto-secundario);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.btn-ver-receita {
+  padding: var(--espacamento-xs) var(--espacamento-md);
+  background-color: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  text-decoration: none;
+  border-radius: var(--borda-radius-pequeno);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color var(--transicao-rapida);
+}
+
+.btn-ver-receita:hover {
+  background-color: var(--cor-primaria-escura);
+}
+
+.receita-recente-placeholder {
+  text-align: center;
+  padding: var(--espacamento-xl);
+  color: var(--cor-texto-secundario);
+}
+
+.receita-recente-placeholder span {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: var(--espacamento-md);
+  opacity: 0.5;
+}
+
+.btn-outline {
+  width: 100%;
+  padding: var(--espacamento-md);
+  background: transparent;
+  color: var(--cor-primaria);
+  border: 2px solid var(--cor-primaria);
+  border-radius: var(--borda-radius);
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: all var(--transicao-media);
+  display: block;
+}
+
+.btn-outline:hover {
+  background: var(--cor-primaria);
+  color: var(--cor-texto-claro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+
+/* Responsividade para a página de perfil */
+@media (max-width: 768px) {
+  .perfil-grid {
+    grid-template-columns: 1fr;
+    gap: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .avatar-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .perfil-badges {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-perfil {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-conteudo {
+    padding: var(--espacamento-xl) var(--espacamento-md);
+  }
+  
+  .perfil-info-card,
+  .perfil-acoes-card,
+  .perfil-stats-card,
+  .perfil-receitas-recentes-card {
+    padding: var(--espacamento-lg);
+  }
+  
+  .acoes-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .receita-recente-info {
+    gap: var(--espacamento-sm);
+  }
+  
+  .receita-recente-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+
+/* Estilos para a página de Cadastro (Registro) aprimorada */
+.registro-page-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, var(--cor-fundo-secundario) 0%, #E8F5E8 100%);
+  padding: var(--espacamento-xl);
+}
+
+.registro-card {
+  background-color: var(--cor-fundo-card);
+  padding: var(--espacamento-xxl); /* Mantido em 3rem (48px) de padding geral */
+  border-radius: var(--borda-radius-grande);
+  box-shadow: var(--sombra-grande);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInScale 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.registro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cor-secundaria) 0%, var(--cor-primaria) 100%);
+}
+
+.registro-header {
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-titulo {
+  font-family: var(--fonte-display);
+  font-size: 2.2rem;
+  color: var(--cor-secundaria);
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 700;
+}
+
+.registro-subtitulo {
+  font-size: 1.1rem;
+  color: var(--cor-texto-secundario);
+  line-height: 1.5;
+}
+
+.registro-form {
+  text-align: left;
+  margin-bottom: var(--espacamento-xl);
+}
+
+.registro-form .form-group {
+  margin-bottom: var(--espacamento-lg);
+}
+
+.registro-form .form-group label {
+  display: block;
+  margin-bottom: var(--espacamento-sm);
+  font-weight: 600;
+  color: var(--cor-texto-primario);
+  font-size: 1rem;
+}
+
+.input-container {
+  position: relative;
+}
+
+.registro-form input[type="text"],
+.registro-form input[type="email"],
+.registro-form input[type="password"] {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-lg);
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius);
+  font-family: var(--fonte-primaria);
+  font-size: 1rem;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao-media);
+  background-color: var(--cor-fundo);
+}
+
+.registro-form input[type="text"]:focus,
+.registro-form input[type="email"]:focus,
+.registro-form input[type="password"]:focus {
+  border-color: var(--cor-secundaria);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+  outline: none;
+  background-color: var(--cor-fundo-card);
+  transform: translateY(-1px);
+}
+
+.registro-form input[type="text"]:hover,
+.registro-form input[type="email"]:hover,
+.registro-form input[type="password"]:hover {
+  border-color: var(--cor-borda-hover);
+}
+
+.senha-requisitos {
+  margin-top: var(--espacamento-xs);
+}
+
+.senha-requisitos small {
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.checkbox-group {
+  margin-bottom: var(--espacamento-xl) !important;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacamento-sm);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--cor-texto-secundario);
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--borda-radius-pequeno);
+  background-color: var(--cor-fundo);
+  position: relative;
+  transition: all var(--transicao-rapida);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark {
+  background-color: var(--cor-secundaria);
+  border-color: var(--cor-secundaria);
+}
+
+.checkbox-container input[type="checkbox"]:checked + .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--cor-texto-claro);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.link-termos {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color var(--transicao-rapida);
+}
+
+.link-termos:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+.btn-registro {
+  width: 100%;
+  padding: var(--espacamento-md) var(--espacamento-xl);
+  background: linear-gradient(135deg, var(--cor-secundaria) 0%, var(--cor-secundaria-escura) 100%);
+  color: var(--cor-texto-claro);
+  border: none;
+  border-radius: var(--borda-radius);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transicao-media);
+  box-shadow: var(--sombra-media);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-registro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.btn-registro:hover::before {
+  left: 100%;
+}
+
+.btn-registro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(39, 174, 96, 0.3);
+  background: linear-gradient(135deg, var(--cor-secundaria-clara) 0%, var(--cor-secundaria) 100%);
+}
+
+.btn-registro:active {
+  transform: translateY(0);
+  box-shadow: var(--sombra-pequena);
+}
+
+.btn-registro:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.registro-footer {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: var(--espacamento-lg);
+  text-align: center;
+}
+
+.link-login {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--cor-texto-secundario);
+}
+
+.link-secundario {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transicao-rapida);
+}
+
+.link-secundario:hover {
+  color: var(--cor-secundaria-escura);
+  text-decoration: underline;
+}
+
+
+/* Estilo para a contagem de receitas em cada card de categoria */
+.categoria-count {
+  display: block; /* Ocupa sua própria linha */
+  margin-top: var(--espacamento-sm); /* Espaçamento acima */
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--cor-secundaria-escura); /* Um verde um pouco mais escuro */
+  background-color: var(--cor-secundaria-clara); /* Fundo verde claro */
+  padding: var(--espacamento-xs) var(--espacamento-sm);
+  border-radius: var(--borda-radius-pequeno);
+  align-self: center; /* Centraliza o span se o container for flex */
+}
+
+/* Opcional: Esconder a descrição se houver uma contagem para dar espaço */
+.categoria-card:hover .categoria-count {
+    transform: translateY(-2px);
+}
+
+/* Estados de validação para os campos */
+.registro-form input.valid {
+  border-color: var(--cor-sucesso);
+  box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.15);
+}
+
+.registro-form input.invalid {
+  border-
